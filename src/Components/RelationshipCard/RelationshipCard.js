@@ -6,7 +6,7 @@ export default class RelationshipCard extends Component {
     render(){
         return(
             <div className="relationshipCard">
-                <Link to='/profile/:profileId'>
+                <Link to='/view/:profileId'>
                     <div>
                         <img src={profileImg} alt='profile image'/> 
                         <div className="cardContent">

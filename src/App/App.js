@@ -14,6 +14,7 @@ import PageNotFound from '../Components/PageNotFound/PageNotFound'
 import SearchView from '../Components/SearchView/SearchView'
 import AddView from '../Components/AddView/AddView'
 import ViewView from '../Components/ViewView/ViewView'
+import ProfileView from '../Components/ProfileView/ProfileView';
 
 class App extends Component {
  
@@ -24,8 +25,8 @@ class App extends Component {
           <MainContainer>
             <Switch>
               <Route exact path='/' component={HomeBanner} />
-              <Route path='/view' component={ViewView} />
-              <Route path='/view/:id' component={HomeBanner} />
+              <Route exact path='/view' component={ViewView} />
+              <Route path='/view/:id' component={ProfileView} />
               <Route path='/search' component={SearchView} />
               <Route path='/add' component={AddView} />
               <Route component={PageNotFound} />
