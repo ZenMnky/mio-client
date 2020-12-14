@@ -11,6 +11,7 @@ import Footer from '../Components/Footer/Footer'
 import MainContainer from '../Components/MainContainer/MainContainer'
 import HomeBanner from '../Components/HomeView/HomeBanner'
 import PageNotFound from '../Components/PageNotFound/PageNotFound'
+import SearchView from '../Components/SearchView/SearchView'
 
 class App extends Component {
  
@@ -23,7 +24,7 @@ class App extends Component {
               <Route exact path='/' component={HomeBanner} />
               <Route path='/view' component={HomeBanner} />
               <Route path='/view/:id' component={HomeBanner} />
-              <Route path='/search' component={HomeBanner} />
+              <Route path='/search' component={SearchView} />
               <Route component={PageNotFound} />
             </Switch>
           </MainContainer>
