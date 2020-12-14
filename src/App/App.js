@@ -10,6 +10,7 @@ import Header from '../Components/Header/Header'
 import Footer from '../Components/Footer/Footer'
 import MainContainer from '../Components/MainContainer/MainContainer'
 import HomeBanner from '../Components/HomeView/HomeBanner'
+import PageNotFound from '../Components/PageNotFound/PageNotFound'
 
 class App extends Component {
  
@@ -18,7 +19,13 @@ class App extends Component {
       <div className="App">
         <Header />
           <MainContainer>
-            <HomeBanner />
+            <Switch>
+              <Route exact path='/' component={HomeBanner} />
+              <Route path='/view' component={HomeBanner} />
+              <Route path='/view/:id' component={HomeBanner} />
+              <Route path='/search' component={HomeBanner} />
+              <Route component={PageNotFound} />
+            </Switch>
           </MainContainer>
         <Footer />
       </div>
