@@ -1,11 +1,32 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import profileImg from '../../profileImg.jpg'
+import { AppContext } from '../../Context/AppContext';
 
-export default class ProfileView extends Component{
+class ProfileView extends Component{
+    static contextType = AppContext;
+
     render(){
+        const { handleGetById } = this.context;
+
+        
+        // get id
+        const { id } = this.props.match.params;
+        handleGetById(id)
+
+
+
+        // check if id is valid
+        // if(!profile) {
+        //     // if !valid, redirect to pageNotFound component
+        //     this.props.history.push(`/notFound`)
+        // }
+        
+
         return(
             <article id="profileView" className='articleView profileView' >
                 <h3>Relationship Profile</h3>
+                <h2>Relationship id is {id}</h2>
                 <div>
                     <img 
                         className="profileImg"
@@ -34,3 +55,5 @@ export default class ProfileView extends Component{
         )
     }
 }
+
+export default withRouter(ProfileView);
