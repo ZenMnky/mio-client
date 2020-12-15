@@ -16,8 +16,7 @@ export default class HomeBanner extends Component {
 
         // get arrays of relationship objects from context
         const { level01, level02, level03, level04, level05 } = this.context;
-        
-        const level01Group = level01.map(profile => {
+        const generateCards = (profile) => {
             return <RelationshipCard 
                     key={profile.id}
                     id={profile.id}
@@ -26,7 +25,12 @@ export default class HomeBanner extends Component {
                     nickname={profile.nickname}
                     imageUrl={profile.image_url}
                     />
-        })
+        }
+        const level01Group = level01.map(profile => generateCards(profile))
+        const level02Group = level02.map(profile => generateCards(profile))
+        const level03Group = level03.map(profile => generateCards(profile))
+        const level04Group = level04.map(profile => generateCards(profile))
+        const level05Group = level05.map(profile => generateCards(profile))
         // use the level arrays to generate the level-components
         // populated with a relationnship card for each object/profile in the array
 
@@ -37,45 +41,27 @@ export default class HomeBanner extends Component {
                <h2>Relationships</h2>
                 <section id="level1Group" className="relationshipGroup">
                     <h3 className="groupHeader">Level 1</h3>
-                    <p>dynamically generated:</p>
                     {level01Group}
                 </section>
 
                 <section id="level2Group" className="relationshipGroup">
                     <h3 className="groupHeader">Level 2</h3>
-                    <RelationshipCard />
-                    <RelationshipCard />
+                    {level02Group}
                 </section>
 
                 <section id="level3Group" className="relationshipGroup">
                     <h3 className="groupHeader">Level 3</h3>
-                    <RelationshipCard />
+                    {level03Group}
                 </section>
 
                 <section id="level4Group" className="relationshipGroup">
                     <h3 className="groupHeader">Level 4</h3>
-
-                    <RelationshipCard />
-                    <RelationshipCard />
-                    <RelationshipCard />
-                    <RelationshipCard />
-
+                    {level04Group}
                 </section>
 
                 <section id="level5Group" className="relationshipGroup">
                     <h3 className="groupHeader">Level 5</h3>
-
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-                        <RelationshipCard />
-
+                    {level05Group}
                 </section>           
        </article>
         )
