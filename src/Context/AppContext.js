@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import App from '../App/App';
 import config from '../config';
 
+const API_BASE = config.API_BABSE_ENDPOINT;
+
 export const AppContext = React.createContext();
 
 export class Provider extends Component {
@@ -12,25 +14,161 @@ export class Provider extends Component {
         super(props);
         this.state = {
             error: null,
-            profiles: []
+            profiles: [],
+            level01: [],
+            level02: [],
+            level03: [],
+            level04: [],
+            level05: []
         }
     }
 
-        // handle state changes
+        componentDidMount() {
+            this.handleGetAllProfiles()
+            .then(() => this.handleSortRelationships())
+            console.log('Context mounted')
+        }
 
-        // set up provider
+        // handle state changes
+        handleSortRelationships = () => {
+            console.log('handleSortRelationships fired!')
+            let relationships = this.state.profiles;
+            let level01 = [];
+            let level02 = [];
+            let level03 = [];
+            let level04 = [];
+            let level05 = [];
+            
+            // sort
+            relationships.forEach(relationship => {
+                
+                // based on the level, assign to state
+                switch (relationship.relationship_level) {
+                    case 1:
+                        level01.push(relationship)
+                        break;
+                    case 2:
+                        level02.push(relationship)
+                        break;
+                    case 3:
+                        level03.push(relationship)
+                        break;
+                    case 4:
+                        level04.push(relationship)
+                        break;
+                    case 5:
+                        level05.push(relationship)
+                        break;
+                    default:
+                        console.log(`no matching case for ${relationship.nickname}`)
+                }
+            })
+    
+            // update state
+            this.setState({
+                level01: level01,
+                level02: level02,
+                level03: level03,
+                level04: level04,
+                level05: level05
+            })
+    
+    
+        }
 
         // make api calls
         
             // get all
+            handleGetAllProfiles = () => {
+                return fetch(`${API_BASE}/profiles`, {
+                    method: 'GET',
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json();
+                })
+                .then( results => {
+                    this.setState({
+                        profiles: results
+                    })
+                })
+                .catch(error => this.setState({ error }))
+            }
+            
             // post
+            handleInsertProfile = (newProfile) => {
+                // validate. is proifle json object?
+                
+                // fetch
+                return fetch(`${API_BASE}/profiles`, {
+                    method: 'POST',
+                    body: JSON.stringify(newProfile)
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json();
+                })
+                .catch(error => this.setState({ error }))
+                
+            }
+
             // get by id
+            // given an id, return the matching profile
+            handleGetById = (id) => {
+                
+                // fetch
+                return fetch(`${API_BASE}/profiles/${id}`, {
+                    method: 'GET',
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json();
+                })
+                .catch(error => this.setState({ error }))
+                
+            }
+
             // patch by id
+            handleUpdateProfile = (id, updatedContent) => {
+                
+                // fetch
+                return fetch(`${API_BASE}/profiles/${id}`, {
+                    method: 'PATCH',
+                    body: JSON.stringify(updatedContent)
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json();
+                })
+                .catch(error => this.setState({ error }))
+            }
+
             // delete by id
+            handleDeleteProfile = (id) => {
+                // fetch
+                return fetch(`${API_BASE}/profiles/${id}`, {
+                    method: 'DELETE',
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(res.status)
+                    }
+                    return res.json();
+                })
+                .catch(error => this.setState({ error }))
+            }
 
         render(){
             const contextValues = {
-                // contextValues: this.contextValu
+               ...this.state
             }
 
             return (

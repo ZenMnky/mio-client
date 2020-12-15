@@ -5,7 +5,7 @@ import SerchResultsArea from './SerchResultsArea.js'
 export default class SearchView extends Component {
     render(){
         return(
-            <article id='searchView' class='articleView'>
+            <article id='searchView' className='articleView'>
                <h3>Search Relationships</h3>
                 <SearchArea />
                 <SerchResultsArea />
