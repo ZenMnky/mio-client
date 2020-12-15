@@ -60,7 +60,7 @@ nav {
   /* z-index: 10; */
   align-items: center;
   flex: 1 0 10%;
-  height: auto;
+  /* height: 10vh; */
 }
 
 .nav_logo h1 {
@@ -179,13 +179,14 @@ footer {
 
 
 
+
 @media all and (min-width: 769px){
   /* nav {
       max-height: 50px;
   } */
-  /* nav {
-    width: 100vw;
-  } */
+  nav {
+    width: 90vw;
+  }
   nav, .nav_links {
       flex-direction: row;
       justify-content: space-between;
