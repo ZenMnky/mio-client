@@ -11,7 +11,8 @@ export class Provider extends Component {
         // set up state
         super(props);
         this.state = {
-            error: null
+            error: null,
+            profiles: []
         }
     }
 
@@ -38,4 +39,10 @@ export class Provider extends Component {
                 </AppContext.Provider>
             );
         };
+}
+
+export const { Consumer } = AppContext;
+
+Provider.propTypes = {
+    children: PropTypes.element
 }
