@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import App from '../App/App';
 import config from '../config';
 
 const API_BASE = config.API_BABSE_ENDPOINT;
@@ -84,10 +83,10 @@ export class Provider extends Component {
     
         }
 
-        findById = (id) => {
-            let profile = this.state.profiles.find(profile => profile.id === id);
-            console.log('found this profile: ', profile)
-        }
+        // findById = (id) => {
+        //     let profile = this.state.profiles.find(profile => profile.id === id);
+        //     console.log('found this profile: ', profile)
+        // }
         
         /*=====  End of STATE FUNCTIONS  ======*/
         
