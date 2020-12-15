@@ -7,69 +7,29 @@ export default class HomeBanner extends Component {
     // allow access to context via `this.context`
     static contextType = AppContext;
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            level01: [],
-            level02: [],
-            level03: [],
-            level04: [],
-            level05: []
-        }
-    }
-
     componentDidMount() {
-        // this.handleSortRelationships()
         console.log('viewview mounted')
     }
 
-    handleSortRelationships = () => {
-        console.log('handleSortRelationships fired!')
-        let relationships = this.context.profiles;
-        let level01 = [];
-        let level02 = [];
-        let level03 = [];
-        let level04 = [];
-        let level05 = [];
-        
-        // sort
-        relationships.forEach(relationship => {
-            // based on the level, assign to state
-            switch (relationship.relationship_level) {
-                case 1:
-                    level01.push(relationship)
-                    break;
-                case 2:
-                    level02.push(relationship)
-                    break;
-                case 3:
-                    level03.push(relationship)
-                    break;
-                case 4:
-                    level04.push(relationship)
-                    break;
-                case 5:
-                    level05.push(relationship)
-                    console.log(`${relationship.nickname} added to level05`)
-                    break;
-                default:
-                    console.log(`no matching case for ${relationship.nickname}`)
-            }
-        })
-
-        // update state
-        this.setState({
-            level01: level01,
-            level02: level02,
-            level03: level03,
-            level04: level04,
-            level05: level05
-        })
-
-
-    }
 
     render(){
+
+        // get arrays of relationship objects from context
+        const { level01, level02, level03, level04, level05 } = this.context;
+        
+        const level01Group = level01.map(profile => {
+            return <RelationshipCard 
+                    key={profile.id}
+                    id={profile.id}
+                    firstName={profile.first_name}
+                    lastName={profile.last_name}
+                    nickname={profile.nickname}
+                    imageUrl={profile.image_url}
+                    />
+        })
+        // use the level arrays to generate the level-components
+        // populated with a relationnship card for each object/profile in the array
+
 
 
         return(
@@ -77,8 +37,8 @@ export default class HomeBanner extends Component {
                <h2>Relationships</h2>
                 <section id="level1Group" className="relationshipGroup">
                     <h3 className="groupHeader">Level 1</h3>
-                    <RelationshipCard />
-                    <RelationshipCard />
+                    <p>dynamically generated:</p>
+                    {level01Group}
                 </section>
 
                 <section id="level2Group" className="relationshipGroup">

@@ -58,7 +58,6 @@ export class Provider extends Component {
                         break;
                     case 5:
                         level05.push(relationship)
-                        console.log(`${relationship.nickname} added to level05`)
                         break;
                     default:
                         console.log(`no matching case for ${relationship.nickname}`)
@@ -169,7 +168,7 @@ export class Provider extends Component {
 
         render(){
             const contextValues = {
-                // contextValues: this.contextValu
+               ...this.state
             }
 
             return (
