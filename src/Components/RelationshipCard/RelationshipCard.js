@@ -8,7 +8,7 @@ export default class RelationshipCard extends Component {
             <div className="relationshipCard">
                 <Link to='/view/:profileId'>
                     <div>
-                        <img src={profileImg} alt='profile image'/> 
+                        <img src={profileImg} alt='profile'/> 
                         <div className="cardContent">
                             <p>Nickname</p>
                             <p>Fname Lname</p>

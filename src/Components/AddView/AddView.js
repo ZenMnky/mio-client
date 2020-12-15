@@ -10,7 +10,7 @@ export default class AddView extends Component {
                         <img 
                             className="profileImg"
                             src={profileImg}
-                            alt='profile image' 
+                            alt='profile' 
                         />
                     </div>
                 <form action="">

@@ -6,7 +6,7 @@ export default class Header extends Component {
         return (
         <header className="App-header">
             <nav role="navigation">
-              <div class='nav_logo'>
+              <div className='nav_logo'>
                   <h1>
                     <Link to='/'>
                         Mio
@@ -14,7 +14,7 @@ export default class Header extends Component {
                   </h1>
               </div>
               
-              <ul class="nav_links">
+              <ul className="nav_links">
                   <li>
                     <NavLink to='/view'>View</NavLink>
                   </li>
