@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import App from '../App/App';
 import config from '../config';
 
 const API_BASE = config.API_BABSE_ENDPOINT;
@@ -19,7 +18,8 @@ export class Provider extends Component {
             level02: [],
             level03: [],
             level04: [],
-            level05: []
+            level05: [],
+            selectedProfile: null
         }
     }
 
@@ -29,7 +29,14 @@ export class Provider extends Component {
             console.log('Context mounted')
         }
 
-        // handle state changes
+        
+        /*=============================================
+        =            STATE FUNCTIONS            =
+        =============================================*/
+        
+        
+        
+        
         handleSortRelationships = () => {
             console.log('handleSortRelationships fired!')
             let relationships = this.state.profiles;
@@ -76,99 +83,119 @@ export class Provider extends Component {
     
         }
 
-        // make api calls
+        // findById = (id) => {
+        //     let profile = this.state.profiles.find(profile => profile.id === id);
+        //     console.log('found this profile: ', profile)
+        // }
         
-            // get all
-            handleGetAllProfiles = () => {
-                return fetch(`${API_BASE}/profiles`, {
-                    method: 'GET',
+        /*=====  End of STATE FUNCTIONS  ======*/
+        
+        
+        
+        /*=============================================
+        =            API FUNCTIONS            =
+        =============================================*/
+    
+        // get all
+        handleGetAllProfiles = () => {
+            return fetch(`${API_BASE}/profiles`, {
+                method: 'GET',
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json();
+            })
+            .then( results => {
+                this.setState({
+                    profiles: results
                 })
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error(res.status)
-                    }
-                    return res.json();
-                })
-                .then( results => {
-                    this.setState({
-                        profiles: results
-                    })
-                })
-                .catch(error => this.setState({ error }))
-            }
+            })
+            .catch(error => this.setState({ error }))
+        }
+        
+        // post
+        handleInsertProfile = (newProfile) => {
+            // validate. is proifle json object?
             
-            // post
-            handleInsertProfile = (newProfile) => {
-                // validate. is proifle json object?
-                
-                // fetch
-                return fetch(`${API_BASE}/profiles`, {
-                    method: 'POST',
-                    body: JSON.stringify(newProfile)
-                })
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error(res.status)
-                    }
-                    return res.json();
-                })
-                .catch(error => this.setState({ error }))
-                
-            }
+            // fetch
+            return fetch(`${API_BASE}/profiles`, {
+                method: 'POST',
+                body: JSON.stringify(newProfile)
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json();
+            })
+            .catch(error => this.setState({ error }))
+            
+        }
 
-            // get by id
-            // given an id, return the matching profile
-            handleGetById = (id) => {
-                
-                // fetch
-                return fetch(`${API_BASE}/profiles/${id}`, {
-                    method: 'GET',
+        // get by id
+        // given an id, return the matching profile
+        handleGetById = (id) => {
+            
+            // fetch
+            return fetch(`${API_BASE}/profiles/${id}`, {
+                method: 'GET',
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json();
+            })
+            .then(results => {
+                this.setState({
+                    selectedProfile: results
                 })
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error(res.status)
-                    }
-                    return res.json();
-                })
-                .catch(error => this.setState({ error }))
-                
-            }
+            })
+            .catch(error => this.setState({ error }))    
+        }
 
-            // patch by id
-            handleUpdateProfile = (id, updatedContent) => {
-                
-                // fetch
-                return fetch(`${API_BASE}/profiles/${id}`, {
-                    method: 'PATCH',
-                    body: JSON.stringify(updatedContent)
-                })
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error(res.status)
-                    }
-                    return res.json();
-                })
-                .catch(error => this.setState({ error }))
-            }
+        // patch by id
+        handleUpdateProfile = (id, updatedContent) => {
+            
+            // fetch
+            return fetch(`${API_BASE}/profiles/${id}`, {
+                method: 'PATCH',
+                body: JSON.stringify(updatedContent)
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json();
+            })
+            .catch(error => this.setState({ error }))
+        }
 
-            // delete by id
-            handleDeleteProfile = (id) => {
-                // fetch
-                return fetch(`${API_BASE}/profiles/${id}`, {
-                    method: 'DELETE',
-                })
-                .then(res => {
-                    if (!res.ok) {
-                        throw new Error(res.status)
-                    }
-                    return res.json();
-                })
-                .catch(error => this.setState({ error }))
-            }
+        // delete by id
+        handleDeleteProfile = (id) => {
+            // fetch
+            return fetch(`${API_BASE}/profiles/${id}`, {
+                method: 'DELETE',
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json();
+            })
+            .catch(error => this.setState({ error }))
+        }
+        
+        /*=====  End of API FUNCTIONS  ======*/
+        
+        
 
         render(){
             const contextValues = {
-               ...this.state
+               ...this.state,
+               handleGetById: this.handleGetById
             }
 
             return (

@@ -1,36 +1,63 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import profileImg from '../../profileImg.jpg'
+import { AppContext } from '../../Context/AppContext';
+import cuid from 'cuid'
+import ProfileContent from './ProfileContent';
 
-export default class ProfileView extends Component{
+class ProfileView extends Component{
+    static contextType = AppContext;
+
+    componentDidMount() {
+        const { id } = this.props.match.params;
+        this.context.handleGetById(id)
+    }
+
+
     render(){
+        
+        const { selectedProfile } = this.context;
+        
+        let content;
+
+        if(selectedProfile){
+            let {
+                first_name,
+                last_name,
+                nickname,
+                image_url,
+                notes,
+                relationship_level,
+                admirable_qualities
+            } = selectedProfile;
+            
+            let image = (image_url) ? image_url : profileImg;
+
+           content = <ProfileContent 
+                first_name = {first_name}
+                last_name = {last_name}
+                nickname = {nickname}
+                image_url = {image}
+                notes = {notes}
+                relationship_level = {relationship_level}
+                admirable_qualities = {admirable_qualities}
+                 /> 
+        } else {
+            content = `<p> loading... </p>`
+        }
+        
+    
+
         return(
-            <article id="profileView" className='articleView profileView' >
+            <article key={cuid()} id="profileView" className='articleView profileView' >
                 <h3>Relationship Profile</h3>
-                <div>
-                    <img 
-                        className="profileImg"
-                        src={profileImg}
-                        alt='profile'
-                    />
-                </div>
-                <section id="profileContent">
-                        <p><em>Name:</em> Fname Lname</p>
-                        <p><em>Nickname:</em> lorum ipsum</p>
-                        <p><em>Relationship level:</em> Zone #</p>
-                        <div>
-                            <p><em>Admirable Qaulities:</em></p>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultricies nisl vel sagittis semper. Cras vitae egestas est.</p>
-                        </div>
-                        <div>
-                            <p><em>Notes</em></p>
-                            <p>Suspendisse neque dolor, viverra convallis sollicitudin id, sagittis et nibh. Aenean ac diam dignissim, cursus orci id, egestas lacus. </p>
-                        </div>         
-                        
-                        <button>Edit</button>
-                </section>
+                {content}
+               
                 
         
             </article>
         )
     }
 }
+
+export default withRouter(ProfileView);
