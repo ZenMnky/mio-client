@@ -14,17 +14,68 @@ export class Provider extends Component {
         super(props);
         this.state = {
             error: null,
-            profiles: []
+            profiles: [],
+            level01: [],
+            level02: [],
+            level03: [],
+            level04: [],
+            level05: []
         }
     }
 
         componentDidMount() {
             this.handleGetAllProfiles()
+            .then(() => this.handleSortRelationships())
             console.log('Context mounted')
         }
 
         // handle state changes
-            // code here
+        handleSortRelationships = () => {
+            console.log('handleSortRelationships fired!')
+            let relationships = this.state.profiles;
+            let level01 = [];
+            let level02 = [];
+            let level03 = [];
+            let level04 = [];
+            let level05 = [];
+            
+            // sort
+            relationships.forEach(relationship => {
+                
+                // based on the level, assign to state
+                switch (relationship.relationship_level) {
+                    case 1:
+                        level01.push(relationship)
+                        break;
+                    case 2:
+                        level02.push(relationship)
+                        break;
+                    case 3:
+                        level03.push(relationship)
+                        break;
+                    case 4:
+                        level04.push(relationship)
+                        break;
+                    case 5:
+                        level05.push(relationship)
+                        console.log(`${relationship.nickname} added to level05`)
+                        break;
+                    default:
+                        console.log(`no matching case for ${relationship.nickname}`)
+                }
+            })
+    
+            // update state
+            this.setState({
+                level01: level01,
+                level02: level02,
+                level03: level03,
+                level04: level04,
+                level05: level05
+            })
+    
+    
+        }
 
         // make api calls
         
