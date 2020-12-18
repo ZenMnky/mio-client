@@ -13,6 +13,11 @@ class ProfileView extends Component{
         this.context.handleGetById(id)
     }
 
+    componentWillUnmount(){
+        // clear selectedProfile
+        this.context.clearSelectedProfile()
+    }
+
 
     render(){
         
@@ -33,6 +38,8 @@ class ProfileView extends Component{
             
             let image = (image_url) ? image_url : profileImg;
 
+            console.log('image', image)
+
            content = <ProfileContent 
                 first_name = {first_name}
                 last_name = {last_name}
@@ -43,7 +50,7 @@ class ProfileView extends Component{
                 admirable_qualities = {admirable_qualities}
                  /> 
         } else {
-            content = `<p> loading... </p>`
+            content = `loading... `
         }
         
     
