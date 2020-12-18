@@ -43,7 +43,7 @@ class ProfileView extends Component{
                 admirable_qualities = {admirable_qualities}
                  /> 
         } else {
-            content = `<p> loading... </p>`
+            content = `loading... `
         }
         
     
