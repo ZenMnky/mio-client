@@ -90,6 +90,11 @@ export class Provider extends Component {
         
         /*=====  End of STATE FUNCTIONS  ======*/
         
+        clearSelectedProfile = () => {
+            this.setState({
+                selectedProfile: null
+            })
+        }
         
         
         /*=============================================
@@ -118,16 +123,21 @@ export class Provider extends Component {
         // post
         handleInsertProfile = (newProfile) => {
             // validate. is proifle json object?
-            
+            const url = `${API_BASE}/profiles`;
+
             // fetch
-            return fetch(`${API_BASE}/profiles`, {
+            return fetch(url, {
                 method: 'POST',
-                body: JSON.stringify(newProfile)
+                body: JSON.stringify(newProfile),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
             .then(res => {
                 if (!res.ok) {
                     throw new Error(res.status)
                 }
+                console.log('posted. response okay')
                 return res.json();
             })
             .catch(error => this.setState({ error }))
@@ -195,7 +205,10 @@ export class Provider extends Component {
         render(){
             const contextValues = {
                ...this.state,
-               handleGetById: this.handleGetById
+               handleGetById: this.handleGetById,
+               handleInsertProfile: this.handleInsertProfile,
+               clearSelectedProfile: this.clearSelectedProfile
+
             }
 
             return (

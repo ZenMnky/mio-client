@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { AppContext } from '../../Context/AppContext';
 import profileImg from '../../profileImg.jpg';
 
-export default class AddRelationshiopForm extends Component {
+class AddRelationshiopForm extends Component {
+    static contextType = AppContext;
+
     constructor(props){
         super(props)
         this.state = {
@@ -78,10 +82,14 @@ export default class AddRelationshiopForm extends Component {
     
     
     // button handlers
-
+    
+    /**
+     * handleSubmit
+     * on submit: POST to API, update state, redirect to newly created profile
+     */
     handleSumbit = (event) => {
         event.preventDefault();
-        console.log('submit button fired')
+        
         const { 
             first_name,
             last_name,
@@ -94,7 +102,7 @@ export default class AddRelationshiopForm extends Component {
 
         this.resetState()
 
-        const profile = {
+        const newProfile = {
             first_name,
             last_name,
             nickname,
@@ -104,7 +112,15 @@ export default class AddRelationshiopForm extends Component {
             notes
         }
 
-        console.log('profile: ', profile)
+        // POST to API
+        this.context.handleInsertProfile(newProfile)
+            .then((res) => {
+                // update state
+
+                // redirect to newly created profile
+                this.props.history.push(`/view/${res.id}`)
+            })
+        
     }
 
     handleReset = (e) => {
@@ -206,3 +222,5 @@ export default class AddRelationshiopForm extends Component {
         )
     }
 }
+
+export default withRouter(AddRelationshiopForm);

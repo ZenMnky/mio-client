@@ -13,6 +13,11 @@ class ProfileView extends Component{
         this.context.handleGetById(id)
     }
 
+    componentWillUnmount(){
+        // clear selectedProfile
+        this.context.clearSelectedProfile()
+    }
+
 
     render(){
         
@@ -32,6 +37,8 @@ class ProfileView extends Component{
             } = selectedProfile;
             
             let image = (image_url) ? image_url : profileImg;
+
+            console.log('image', image)
 
            content = <ProfileContent 
                 first_name = {first_name}
