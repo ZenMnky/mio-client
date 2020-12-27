@@ -25,6 +25,21 @@ export default class SearchArea extends Component {
         })
     }
 
+    handleSearch = (e) => {
+        e.preventDefault();
+
+        let {relationshipZone, searchTerms } = this.state;
+
+        this.props.searchProfiles(relationshipZone, searchTerms)
+       
+    }
+
+    handleReset = (e) => {
+        e.preventDefault();
+
+        alert('reset btn fired')
+    }
+
     render(){
         return(
             
@@ -51,7 +66,7 @@ export default class SearchArea extends Component {
                             id="selectRelationshipZone"
                             value={this.state.relationshipZone}
                             onChange={e => this.relationshipZoneChanged(e.target.value)}
-                            >
+                        >
                             <option value="0">Any</option>
                             <option value="1">Zone 1</option>
                             <option value="2">Zone 2</option>
@@ -62,8 +77,8 @@ export default class SearchArea extends Component {
                     </div>
 
                     <div>
-                        <button>Search</button>
-                        <button>Reset</button>
+                        <button onClick={e => this.handleSearch(e)}>Search</button>
+                        <button onClick={e => this.handleReset(e)}>Reset</button>
                     </div> 
                 
                 </form>

@@ -14,11 +14,11 @@ export class Provider extends Component {
         this.state = {
             error: null,
             profiles: [],
-            level01: [],
-            level02: [],
-            level03: [],
-            level04: [],
-            level05: [],
+            level1: [],
+            level2: [],
+            level3: [],
+            level4: [],
+            level5: [],
             selectedProfile: null
         }
     }
@@ -40,11 +40,11 @@ export class Provider extends Component {
         handleSortRelationships = () => {
             console.log('handleSortRelationships fired!')
             let relationships = this.state.profiles;
-            let level01 = [];
-            let level02 = [];
-            let level03 = [];
-            let level04 = [];
-            let level05 = [];
+            let level1 = [];
+            let level2 = [];
+            let level3 = [];
+            let level4 = [];
+            let level5 = [];
             
             // sort
             relationships.forEach(relationship => {
@@ -52,19 +52,19 @@ export class Provider extends Component {
                 // based on the level, assign to state
                 switch (relationship.relationship_level) {
                     case 1:
-                        level01.push(relationship)
+                        level1.push(relationship)
                         break;
                     case 2:
-                        level02.push(relationship)
+                        level2.push(relationship)
                         break;
                     case 3:
-                        level03.push(relationship)
+                        level3.push(relationship)
                         break;
                     case 4:
-                        level04.push(relationship)
+                        level4.push(relationship)
                         break;
                     case 5:
-                        level05.push(relationship)
+                        level5.push(relationship)
                         break;
                     default:
                         console.log(`no matching case for ${relationship.nickname}`)
@@ -73,20 +73,16 @@ export class Provider extends Component {
     
             // update state
             this.setState({
-                level01: level01,
-                level02: level02,
-                level03: level03,
-                level04: level04,
-                level05: level05
+                level1: level1,
+                level2: level2,
+                level3: level3,
+                level4: level4,
+                level5: level5
             })
     
     
         }
 
-        // findById = (id) => {
-        //     let profile = this.state.profiles.find(profile => profile.id === id);
-        //     console.log('found this profile: ', profile)
-        // }
         
         /*=====  End of STATE FUNCTIONS  ======*/
         
