@@ -7,10 +7,6 @@ export default class HomeBanner extends Component {
     // allow access to context via `this.context`
     static contextType = AppContext;
 
-    componentDidMount() {
-        console.log('viewview mounted')
-    }
-
 
     render(){
 

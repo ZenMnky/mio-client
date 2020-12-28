@@ -38,7 +38,6 @@ class ProfileView extends Component{
             
             let image = (image_url) ? image_url : profileImg;
 
-            console.log('image', image)
 
            content = <ProfileContent 
                 first_name = {first_name}

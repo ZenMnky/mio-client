@@ -35,8 +35,10 @@ export default class SearchArea extends Component {
     }
 
     handleReset = (e) => {
-        e.preventDefault();
-
+        if(e){
+            e.preventDefault();
+        }
+        
         // reset state in this component
         this.setState({
             searchTerms: '',
@@ -46,6 +48,10 @@ export default class SearchArea extends Component {
         // reset state in parent component
         this.props.clearSearchResults();
 
+    }
+
+    componentWillUnmount = () => {
+        this.handleReset()
     }
 
     render(){

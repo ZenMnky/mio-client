@@ -1,7 +1,18 @@
 import cuid from 'cuid';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class ProfileContent extends Component{
+    constructor(props){
+        super(props)
+    }
+    
+    handleEdit = (e) => {
+        e.preventDefault()
+        
+        this.props.history.push(`/edit/${this.props.match.params.id}`)
+    }
+
     render(){
         let {
             first_name,
@@ -11,9 +22,8 @@ class ProfileContent extends Component{
             notes,
             relationship_level,
             admirable_qualities
-            } = this.props;
-
-        
+        } = this.props;
+            
         return(
             <article key={cuid()} id='profileContent'>
                 <section id='profileImgArea'>
@@ -36,7 +46,7 @@ class ProfileContent extends Component{
                             <p>{notes}</p>
                         </div>         
                         
-                        <button>Edit</button>
+                        <button onClick={e => this.handleEdit(e) }>Edit</button>
                 </section>
             </article >
             
@@ -44,4 +54,4 @@ class ProfileContent extends Component{
     }
 }
 
-export default ProfileContent;
+export default withRouter(ProfileContent);
