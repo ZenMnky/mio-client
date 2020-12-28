@@ -194,6 +194,8 @@ class EditRelationshipForm extends Component {
     render(){
 
         let avatar = (this.state.image_url) ? this.state.image_url : profileImg;
+        let updatingMsg = (this.state.redirectLoading) ? <p>Updating...</p> : '';
+        let loadingMsg = (this.state.stateLoading) ? <p>Loding information...</p> : '';
 
         return(
             <form id="editRelationshipForm">
@@ -203,6 +205,8 @@ class EditRelationshipForm extends Component {
                             src={avatar}
                             alt='profile' 
                         />
+                        {updatingMsg}
+                        {loadingMsg}
                     </div>
 
                     <label htmlFor="first_name"></label>
@@ -271,12 +275,14 @@ class EditRelationshipForm extends Component {
                     <button
                         type="submit"
                         onClick={event => this.handleSave(event)}
+                        disabled={this.state.redirectLoading}
                     >
                             Save
                     </button>
                     <button
                         type="button"
                         onClick={e => this.handleCancel(e)}
+                        disabled={this.state.redirectLoading}
                     >
                         Cancel
                     </button>
