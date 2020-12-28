@@ -141,7 +141,6 @@ export class Provider extends Component {
                 if (!res.ok) {
                     throw new Error(res.status)
                 }
-                console.log('posted. response okay')
                 return res.json();
             })
             .catch(error => this.setState({ error }))
@@ -185,10 +184,7 @@ export class Provider extends Component {
 
         // patch by id
         handleUpdateProfile = (id, updatedContent) => {
-            console.log('updated content: ', JSON.stringify(updatedContent))
-            console.log('id to update: ', id)
-            console.log(`fetch URL: ${API_BASE}/profiles/${id}`)
-
+            
             // fetch
             return fetch(`${API_BASE}/profiles/${id}`, {
                 method: 'PATCH',
