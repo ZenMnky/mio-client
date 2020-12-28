@@ -24,9 +24,8 @@ export class Provider extends Component {
     }
 
         componentDidMount() {
-            this.handleGetAllProfiles()
-            .then(() => this.handleSortRelationships())
-            console.log('Context mounted')
+            this.getAllAndSort()
+            
         }
 
         
@@ -34,11 +33,13 @@ export class Provider extends Component {
         =            STATE FUNCTIONS            =
         =============================================*/
         
-        
+        getAllAndSort = () => {
+            this.handleGetAllProfiles()
+            .then(() => this.handleSortRelationships())
+        }
         
         
         handleSortRelationships = () => {
-            console.log('handleSortRelationships fired!')
             let relationships = this.state.profiles;
             let level1 = [];
             let level2 = [];
@@ -83,14 +84,21 @@ export class Provider extends Component {
     
         }
 
-        
-        /*=====  End of STATE FUNCTIONS  ======*/
-        
         clearSelectedProfile = () => {
             this.setState({
                 selectedProfile: null
             })
         }
+
+        getProfileById = (id) => {
+            let profile = this.state.profiles.find(profile => profile.id === id)
+
+            return profile;
+        }
+
+        /*=====  End of STATE FUNCTIONS  ======*/
+        
+        
         
         
         /*=============================================
@@ -162,12 +170,31 @@ export class Provider extends Component {
             .catch(error => this.setState({ error }))    
         }
 
+        simpleGetById = (id) => {
+             // fetch
+             return fetch(`${API_BASE}/profiles/${id}`, {
+                method: 'GET',
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status)
+                }
+                return res.json();
+            })
+        }
+
         // patch by id
         handleUpdateProfile = (id, updatedContent) => {
-            
+            console.log('updated content: ', JSON.stringify(updatedContent))
+            console.log('id to update: ', id)
+            console.log(`fetch URL: ${API_BASE}/profiles/${id}`)
+
             // fetch
             return fetch(`${API_BASE}/profiles/${id}`, {
                 method: 'PATCH',
+                headers:{
+                    'Content-Type' : 'application/json'
+                },
                 body: JSON.stringify(updatedContent)
             })
             .then(res => {
@@ -196,15 +223,23 @@ export class Provider extends Component {
         
         /*=====  End of API FUNCTIONS  ======*/
         
-        
+        testContextConnection = () => {
+            console.log('context connected!')
+        }
 
         render(){
             const contextValues = {
                ...this.state,
+               getAllAndSort: this.getAllAndSort,
+               handleGetAllProfiles: this.handleGetAllProfiles,
+               handleSortRelationships: this.handleSortRelationships,
                handleGetById: this.handleGetById,
                handleInsertProfile: this.handleInsertProfile,
-               clearSelectedProfile: this.clearSelectedProfile
-
+               handleUpdateProfile: this.handleUpdateProfile,
+               clearSelectedProfile: this.clearSelectedProfile,
+               getProfileById: this.getProfileById,
+               simpleGetById: this.simpleGetById,
+               testContextConnection: this.testContextConnection
             }
 
             return (

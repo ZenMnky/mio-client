@@ -15,6 +15,7 @@ import SearchView from '../Components/SearchView/SearchView'
 import AddView from '../Components/AddView/AddView'
 import ViewView from '../Components/ViewView/ViewView'
 import ProfileView from '../Components/ProfileView/ProfileView';
+import EditView from '../Components/EditView/EditView';
 
 class App extends Component {
  
@@ -29,6 +30,7 @@ class App extends Component {
               <Route path='/view/:id' component={ProfileView} />
               <Route path='/search' component={SearchView} />
               <Route path='/add' component={AddView} />
+              <Route path='/edit/:id' component={EditView} />
               <Route component={PageNotFound} />
             </Switch>
           </MainContainer>
