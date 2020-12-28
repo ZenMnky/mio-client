@@ -42,6 +42,21 @@ class EditRelationshipForm extends Component {
             })
     }
 
+    componentWillUnmount(){
+        this.setState({
+            id: '',
+            first_name: '',
+            last_name: '',
+            nickname: '',
+            image_url: '',
+            relationship_level: 1,
+            admirable_qualities: '',
+            notes: '',
+            stateLoading: true,
+            redirectLoading: false
+        })
+    }
+
     // State modifiers
         firstNameChanged = (first_name) => {
             this.setState({
@@ -165,10 +180,9 @@ class EditRelationshipForm extends Component {
      */
     handleCancel = (e) => {
         e.preventDefault()
-        console.log('reset button fired')
-        // this.resetState()
+        console.log('cancel button fired')
+        this.props.history.push(`/view/${this.state.id}`)
     }
-
     // end button handlers
 
 
@@ -253,7 +267,7 @@ class EditRelationshipForm extends Component {
                             Save
                     </button>
                     <button
-                        type="reset"
+                        type="button"
                         onClick={e => this.handleCancel(e)}
                     >
                         Cancel
