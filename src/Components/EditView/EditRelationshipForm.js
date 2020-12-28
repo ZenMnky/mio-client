@@ -119,7 +119,11 @@ class EditRelationshipForm extends Component {
     
     
     
-    // button handlers
+    
+    /*=============================================
+    =            Button handlers            =
+    =============================================*/
+    
     
     /**
      * handleSave
@@ -182,16 +186,21 @@ class EditRelationshipForm extends Component {
         e.preventDefault()
         this.props.history.push(`/view/${this.state.id}`)
     }
-    // end button handlers
+    
+    /*=====  End of Button handlers  ======*/
+    
 
 
     render(){
+
+        let avatar = (this.state.image_url) ? this.state.image_url : profileImg;
+
         return(
             <form id="editRelationshipForm">
                     <div>
                         <img 
                             className="profileImg"
-                            src={profileImg}
+                            src={avatar}
                             alt='profile' 
                         />
                     </div>
