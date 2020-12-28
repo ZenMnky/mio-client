@@ -32,7 +32,6 @@ export default class SearchView extends Component {
 
 
         if(zone === 0){
-            console.log('zone zero filter fired')
             // filter all profiles by term
             filteredResults = this.context.profiles.filter(filterProfiles)
 
@@ -41,7 +40,7 @@ export default class SearchView extends Component {
             })
         }
         if(zone > 0) {
-            console.log(`zone ${level} filter fired`)
+            
             let profileLevel = this.context[level] 
             filteredResults = profileLevel.filter(filterProfiles)
             
@@ -49,16 +48,25 @@ export default class SearchView extends Component {
                 searchResults: filteredResults
             })
         }
-    
-    
+    }
+
+    clearSearchResults = () => {
+        this.setState({
+            searchResults: []
+        })
     }
 
     render(){
         return(
             <article id='searchView' className='articleView'>
                <h3>Search Relationships</h3>
-                <SearchArea searchProfiles={this.searchProfiles} />
-                <SearchResultsArea searchResults={this.state.searchResults} />
+                <SearchArea 
+                    searchProfiles={this.searchProfiles} 
+                    clearSearchResults={this.clearSearchResults} 
+                />
+                <SearchResultsArea 
+                    searchResults={this.state.searchResults} 
+                />
             </article>
         )
     }

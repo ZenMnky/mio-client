@@ -37,7 +37,15 @@ export default class SearchArea extends Component {
     handleReset = (e) => {
         e.preventDefault();
 
-        alert('reset btn fired')
+        // reset state in this component
+        this.setState({
+            searchTerms: '',
+            relationshipZone: 0
+        })
+
+        // reset state in parent component
+        this.props.clearSearchResults();
+
     }
 
     render(){
