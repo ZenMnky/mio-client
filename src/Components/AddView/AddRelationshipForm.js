@@ -125,7 +125,6 @@ class AddRelationshiopForm extends Component {
 
     handleReset = (e) => {
         e.preventDefault()
-        console.log('reset button fired')
         this.resetState()
     }
 

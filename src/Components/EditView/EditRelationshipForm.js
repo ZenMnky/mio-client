@@ -180,7 +180,6 @@ class EditRelationshipForm extends Component {
      */
     handleCancel = (e) => {
         e.preventDefault()
-        console.log('cancel button fired')
         this.props.history.push(`/view/${this.state.id}`)
     }
     // end button handlers
