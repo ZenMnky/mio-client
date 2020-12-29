@@ -1,46 +1,5 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
 
 
-.App-header {
-  background-color: #282c34;
-}
 html {
   height: 100%;
 }
@@ -66,7 +25,7 @@ main {
 
 .main-banner h1 {
   font-size: 120px;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .main-banner{  
@@ -78,6 +37,15 @@ main {
   height: 100vh;
 
 }
+.quote {
+  font-weight: 800;
+  font-style: italic;
+  color: black;
+}
+
+.quote_source{
+  color: black;
+}
 
 .quoteBox {
   position: relative;
@@ -87,6 +55,7 @@ main {
   overflow: hidden;
  
 }
+
 
 .quoteBox:before{
   content: '';
@@ -107,7 +76,84 @@ main {
   margin: 0 0 20px;
   padding: 0;
   z-index: 2;
-  
+}
+
+section #profileContentArea {
+  padding: 5px 10px;
+  color: #000;
+  background-color: #ffffff;
+}
+#profileImgArea{
+  position: relative;
+  padding: 0;
+  z-index: 2;
+  filter: none;
+}
+.articleView, .relationshipCard {
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  overflow: hidden;
+  position:relative;
+}
+
+.articleView:before, .relationshipCard:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background-image: url('https://images.unsplash.com/photo-1504952763299-66ca4fcb05b3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1567&q=80');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(4px);
+}
+
+.articleView, .relationshipCard form, input, textarea, select, button, label, img, h1,h2,h3,p {
+    position: relative;
+    padding: 0;
+    z-index: 2;
+    filter: none;
+}
+.cardContent {
+  background-color: #ffffff;
+  background-image: none;
+  color: #000;
+}
+.groupHeader {
+  width: 100%;
+}
+
+.relationshipCard:before {
+  background-image: none;
+}
+.relationshipCard {
+  min-height: 300px;
+  background-color: #ffffff;
+}
+
+.profileView:before{
+  background-image: none;
+}
+.profileView{
+  background-color:#ffffff;
+}
+button { 
+  margin: 10px 5px;
+}
+
+textarea {
+  min-width: 80%;
+  overflow: auto;
+  min-height: 200px;
+  padding: 5px;
+}
+
+.articleView select {
+  min-width: 50%;
+}
+em {
+  font-weight: 700;
 }
 
 footer {

@@ -13,7 +13,7 @@ export default class RelationshipCard extends Component {
         let image = imageUrl ? imageUrl : profileImg
 
         return(
-            <div className="relationshipCard">
+            <div className="relationshipCard frostedGlass">
                 <Link to={profilePath}>
                     <div key={cuid()}>
                         <img src={image} alt='profile'/> 

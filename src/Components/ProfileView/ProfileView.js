@@ -56,11 +56,8 @@ class ProfileView extends Component{
 
         return(
             <article key={cuid()} id="profileView" className='articleView profileView' >
-                <h3>Relationship Profile</h3>
+                <h2>Relationship Profile</h2>
                 {content}
-               
-                
-        
             </article>
         )
     }

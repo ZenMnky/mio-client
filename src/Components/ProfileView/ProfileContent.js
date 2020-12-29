@@ -33,7 +33,7 @@ class ProfileContent extends Component{
                         alt='profile'
                     />
                 </section>
-                <section id="profileContent">
+                <section id="profileContentArea">
                         <p><em>Name:</em> {first_name} {last_name}</p>
                         <p><em>Nickname:</em> {nickname}</p>
                         <p><em>Relationship level:</em> Zone {relationship_level}</p>
