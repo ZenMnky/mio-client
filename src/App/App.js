@@ -16,6 +16,7 @@ import AddView from '../Components/AddView/AddView'
 import ViewView from '../Components/ViewView/ViewView'
 import ProfileView from '../Components/ProfileView/ProfileView';
 import EditView from '../Components/EditView/EditView';
+import AboutView from '../Components/AboutView/AboutView'
 
 class App extends Component {
  
@@ -26,11 +27,13 @@ class App extends Component {
           <MainContainer>
             <Switch>
               <Route exact path='/' component={HomeBanner} />
+              <Route path='/about' component={AboutView} />
               <Route exact path='/view' component={ViewView} />
               <Route path='/view/:id' component={ProfileView} />
               <Route path='/search' component={SearchView} />
               <Route path='/add' component={AddView} />
               <Route path='/edit/:id' component={EditView} />
+              
               <Route component={PageNotFound} />
             </Switch>
           </MainContainer>
