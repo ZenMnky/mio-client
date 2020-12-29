@@ -140,6 +140,8 @@ section #profileContentArea {
 }
 button { 
   margin: 10px 5px;
+  padding: 10px;
+  
 }
 
 textarea {
@@ -149,8 +151,9 @@ textarea {
   padding: 5px;
 }
 
-.articleView select {
+.articleView select, input {
   min-width: 50%;
+  padding: 5px;
 }
 em {
   font-weight: 700;

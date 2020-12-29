@@ -9,7 +9,7 @@ export default class EditView extends Component {
     render(){
         return(
             <article id="editRelationship" className='editRelationship articleView'>
-                <h3>Edit Relationship</h3>
+                <h2>Edit Relationship</h2>
                 <EditRelationshipForm />   
             </article>
         )
