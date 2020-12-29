@@ -219,10 +219,6 @@ export class Provider extends Component {
         
         /*=====  End of API FUNCTIONS  ======*/
         
-        testContextConnection = () => {
-            console.log('context connected!')
-        }
-
         render(){
             const contextValues = {
                ...this.state,
@@ -232,10 +228,10 @@ export class Provider extends Component {
                handleGetById: this.handleGetById,
                handleInsertProfile: this.handleInsertProfile,
                handleUpdateProfile: this.handleUpdateProfile,
+               handleDeleteProfile: this.handleDeleteProfile,
                clearSelectedProfile: this.clearSelectedProfile,
                getProfileById: this.getProfileById,
                simpleGetById: this.simpleGetById,
-               testContextConnection: this.testContextConnection
             }
 
             return (

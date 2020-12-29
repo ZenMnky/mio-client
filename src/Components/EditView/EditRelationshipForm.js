@@ -178,13 +178,28 @@ class EditRelationshipForm extends Component {
     }
 
     /**
-     * handleCancel 🚧
+     * handleCancel
      * clear componenet state
      * reroute to profile view
      */
     handleCancel = (e) => {
         e.preventDefault()
         this.props.history.push(`/view/${this.state.id}`)
+    }
+
+    handleDelete = (e) => {
+        e.preventDefault()
+        let result = window.confirm('Are you sure you want to perminatley delete this profile? This action can not be undone.')
+        if(result){
+            // delete profile - api
+            this.context.handleDeleteProfile(this.state.id)
+            .then(() => {
+                // refresh state - (get & sort)
+                this.context.getAllAndSort()
+            })
+            // redirect to home page
+            this.props.history.push('/')
+        }
     }
     
     /*=====  End of Button handlers  ======*/
@@ -285,6 +300,13 @@ class EditRelationshipForm extends Component {
                         disabled={this.state.redirectLoading}
                     >
                         Cancel
+                    </button>
+                    <button
+                        type='button'
+                        onClick={e => this.handleDelete(e)}
+                        disabled={this.state.redirectLoading}
+                    >
+                        Delete Profile
                     </button>
                 </form>
         )
