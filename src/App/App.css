@@ -41,3 +41,27 @@
 .App-header {
   background-color: #282c34;
 }
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1504952763299-66ca4fcb05b3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1567&q=80');
+  background-attachment: fixed;
+}
+
+.App { 
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: auto;
+  height: 100%;
+  min-height: 100vh;
+}
+
+footer {
+  flex-shrink: 0;
+}
