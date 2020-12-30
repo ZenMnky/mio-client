@@ -96,19 +96,9 @@ section #profileContentArea {
 
 #aboutView section {
     padding: 5px 10px;
+    line-height: 1.5;
 }
 
-#aboutView li {
-  list-style-type: none;
-  padding-top: 5px;
-}
-#aboutView ul{
-  padding: 0;
-  margin-top: 0;
-  z-index: 2;
-  filter: none;
-  
-}
 #aboutView a {
   text-decoration: underline;
 }
