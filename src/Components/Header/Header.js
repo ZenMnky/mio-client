@@ -16,6 +16,9 @@ export default class Header extends Component {
               
               <ul className="nav_links">
                   <li>
+                    <NavLink to='/about'>About</NavLink>
+                  </li>
+                  <li>
                     <NavLink to='/view'>View</NavLink>
                   </li>
                   <li>

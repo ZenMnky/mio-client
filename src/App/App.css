@@ -89,6 +89,26 @@ section #profileContentArea {
   z-index: 2;
   filter: none;
 }
+
+#aboutView {
+  color: black;
+}
+
+#aboutView section {
+    padding: 5px 10px;
+}
+
+#aboutView li {
+  list-style-type: none;
+  padding-top: 5px;
+}
+#aboutView ul{
+  padding: 0;
+  margin-top: 0;
+}
+#aboutView a {
+  text-decoration: underline;
+}
 .articleView, .relationshipCard {
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
   overflow: hidden;
