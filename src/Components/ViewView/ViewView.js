@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppContext } from '../../Context/AppContext';
 import RelationshipCard from '../RelationshipCard/RelationshipCard'
 
-export default class HomeBanner extends Component {
+export default class ViewView extends Component {
 
     // allow access to context via `this.context`
     static contextType = AppContext;
