@@ -99,7 +99,7 @@ section #profileContentArea {
     line-height: 1.5;
 }
 
-#aboutView a {
+#aboutView section a {
   text-decoration: underline;
 }
 .articleView, .relationshipCard {

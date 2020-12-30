@@ -5,7 +5,7 @@ export default class AboutView extends Component{
     render(){
         return(
             <article id='aboutView' className='articleView'>
-                <h1>About Mio</h1>
+                <h1>About <Link to='/'>Mio</Link></h1>
                 <section>
                     <p>
                         Mio is a relationship management tool built to help organize and care for personal relationships. 
