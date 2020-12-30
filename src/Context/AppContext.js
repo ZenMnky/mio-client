@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import config from '../config';
 
-const API_BASE = config.API_BABSE_ENDPOINT;
+const API_BASE = config.API_BASE_ENDPOINT;
 
 export const AppContext = React.createContext();
 

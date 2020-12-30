@@ -3,10 +3,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 class ProfileContent extends Component{
-    constructor(props){
-        super(props)
-    }
-    
+        
     handleEdit = (e) => {
         e.preventDefault()
         
