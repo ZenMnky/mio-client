@@ -1,10 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,700;1,800&family=Euphoria+Script&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  width: 100%;
+}
 
 html {
   height: 100%;
 }
 
 body {
+  font-family: "Open Sans", sans-serif; 
+  font-size: 20px;
+  color: #444;
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   background-image: url('https://images.unsplash.com/photo-1504952763299-66ca4fcb05b3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1567&q=80');
   background-size: cover;
@@ -12,15 +30,94 @@ body {
   background-attachment: fixed;
 }
 
+em {
+  font-weight: 700;
+}
+
+a:link, a:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 .App { 
   display: flex;
   flex-direction: column;
 }
 
+header {
+  background-color: rgb(154, 187, 214);
+}
+
+.nav_links a:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+.nav_logo {
+  margin: 0;
+  margin-left: 5%;
+}
+
+nav,
+footer {
+  padding: 1% 0;
+  background-color: rgb(154, 187, 214);
+}
+
+nav {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 10%;
+}
+
+nav a {
+  text-decoration: none;
+}
+nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.nav_logo h1 {
+  margin: 0;
+}
+
+nav, .nav_links {
+  display: flex;
+}
+
+.nav_links {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.nav_links li {
+  padding: 0 10px;
+}
+
+.nav_links li:last-child{
+  padding-right: 0;
+}
+
+.nav_logo, .main-banner h1 {
+  font-family: "Euphoria Script", "Lucida Handwriting", cursive;
+}
+
+
 main {
-  flex: auto;
+  flex: 1 0 auto;
   height: 100%;
   min-height: 100vh;
+}
+
+.articleView {
+  border: 1px solid black;
+  margin: 2.5% 10%
+}
+
+.articleView select, input {
+  min-width: 50%;
+  padding: 5px;
 }
 
 .main-banner h1 {
@@ -37,25 +134,16 @@ main {
   height: 100vh;
 
 }
-.quote {
-  font-weight: 800;
-  font-style: italic;
-  color: black;
-}
-
-.quote_source{
-  color: black;
-}
 
 .quoteBox {
+  border: 1px solid black;
+  margin: 50px;
   position: relative;
   max-width: 1200px;
   padding: 50px;
   box-shadow: 0 5px 15px rgba(0,0,0,.5);
   overflow: scroll;
- 
 }
-
 
 .quoteBox:before{
   content: '';
@@ -78,16 +166,48 @@ main {
   z-index: 2;
 }
 
+.quote {
+  font-weight: 800;
+  font-style: italic;
+  color: black;
+}
+
+.quote_source{
+  color: black;
+}
+
+.sectionTitle {
+  border: 1px solid black;
+  margin-top: 15px;
+}
+
+.profileView{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.profileView em {
+  font-weight: bold;
+  font-style: normal;
+
+}
+
 section #profileContentArea {
   padding: 5px 10px;
   color: #000;
   background-color: #ffffff;
 }
+
 #profileImgArea{
   position: relative;
   padding: 0;
   z-index: 2;
   filter: none;
+}
+
+.profileImg {    
+  width: 100%; 
+  max-width: 500px;
 }
 
 #aboutView {
@@ -107,6 +227,13 @@ section #profileContentArea {
   overflow: hidden;
   position:relative;
 }
+
+#searchResults div.relationshipGroup {
+  background-color: rgb(233, 231, 231);
+  justify-content: center;
+}
+
+
 
 .articleView:before, .relationshipCard:before {
   content: '';
@@ -151,10 +278,43 @@ section #profileContentArea {
 .profileView{
   background-color:#ffffff;
 }
+
+.relationshipGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupHeader {
+  margin: 5px 20px 5px 10px;
+}
+
+.relationshipCard {
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin: 15px;
+  max-width: 200px;
+}
+.relationshipCard img {
+  width: 100%;
+}
+
+.cardContent {
+  padding: 2px 16px;
+}
+
+form label, form input, form textarea {
+  display: block; 
+  text-align: center;
+  margin: 8px auto;
+}
+
+
 button { 
-  margin: 10px 5px;
+  margin: 10px 5px 20px;
   padding: 10px;
-  
 }
 
 textarea {
@@ -164,20 +324,40 @@ textarea {
   padding: 5px;
 }
 
-.articleView select, input {
-  min-width: 50%;
-  padding: 5px;
-}
-em {
-  font-weight: 700;
-}
+
+
+
 
 footer {
+  left: 0;
+  right: 0;
   flex-shrink: 0;
 }
+
 
 @media all and (min-width: 500px){
   .quoteBox {
     overflow: hidden;
   }
+}
+
+@media all and (min-width: 769px){
+
+  nav {
+    width: 90vw;
+  }
+  nav, .nav_links {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .nav_links li {
+      margin: 0 10px;
+  }
+
+  .relationshipGroup {
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+
 }
