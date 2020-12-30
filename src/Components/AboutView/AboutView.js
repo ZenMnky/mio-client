@@ -26,13 +26,15 @@ export default class AboutView extends Component{
                     </p>
                     <p>
                         From there, 
-                        <ul>
-                            <li><Link to='/add'>Add</Link> a new profile.</li>
-                            <li><Link to='/view'>View all</Link> existing profiles.</li>
-                            <li><Link to='/search'>Search</Link> for a specific profile.</li>
-                            <li><Link to='/search'>Filter</Link> all profiles by relationship zone</li>
-                        </ul>
+                        <br></br>
+                        <Link to='/add'>Add</Link> a new profile. <br></br>
+                        <Link to='/view'>View all</Link> existing profiles.
+                        <br></br>
+                        <Link to='/search'>Search</Link> for a specific profile.
+                        <br></br>
+                        <Link to='/search'>Filter</Link> all profiles by relationship zone
                     </p>
+                        
                 </section>
                 <section>
                     <h2>Intended Updates</h2>
