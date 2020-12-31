@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { AppContext } from '../../Context/AppContext';
 import profileImg from '../../profileImg.jpg';
+import setInputHeight from '../../HelperModules/setInputHeight';
 
 class EditRelationshipForm extends Component {
     static contextType = AppContext;
@@ -281,14 +282,18 @@ class EditRelationshipForm extends Component {
                         name="admirable_qualities" 
                         placeholder="admirable qualities"
                         value={this.state.admirable_qualities}
-                        onChange={e => this.admirableQualitiesChanged(e.target.value)}
+                        onChange={e => {
+                            this.admirableQualitiesChanged(e.target.value);
+                        }}
                     / >
             
                     <textarea 
                         name="notes" 
                         placeholder="initial relationship notes" 
                         value={this.state.notes}
-                        onChange={e => this.notesChanged(e.target.value)}
+                        onChange={e => {
+                            this.notesChanged(e.target.value);
+                        }}
                     />
 
                     <button

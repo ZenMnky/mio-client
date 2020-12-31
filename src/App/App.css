@@ -55,6 +55,7 @@ header {
 .nav_logo {
   margin: 0;
   margin-left: 5%;
+  font-size: 1.5em;
 }
 
 nav,
@@ -65,7 +66,7 @@ footer {
 
 nav {
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex: 1 0 10%;
 }
@@ -255,6 +256,15 @@ section #profileContentArea {
     z-index: 2;
     filter: none;
 }
+
+#aboutView:before {
+  background-image: none;
+}
+
+#aboutView {
+  background-color: rgba(255, 255, 255, .7)
+}
+
 .cardContent {
   background-color: #ffffff;
   background-image: none;
@@ -305,27 +315,54 @@ section #profileContentArea {
   padding: 2px 16px;
 }
 
-form label, form input, form textarea {
+form input, form textarea, form select {
   display: block; 
   text-align: center;
-  margin: 8px auto;
+  margin: 0 auto 20px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  border-bottom: 3px solid rgb(154, 187, 214);
 }
 
+form select, form option {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+form textarea {
+  margin-top: 20px;
+}
+
+form input {
+  line-height: normal;
+}
+
+.profileImg, form img {
+  border-radius: 250px;
+  border: none;
+}
 
 button { 
-  margin: 10px 5px 20px;
+  margin: 10px 30px 20px;
   padding: 10px;
+  background-color: rgb(154, 187, 214);
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  min-width: 200px;
+  color: black;
+  text-transform: uppercase;
 }
 
 textarea {
   min-width: 80%;
   overflow: auto;
-  min-height: 200px;
-  padding: 5px;
+  min-height: 150px;
 }
 
-
-
+.addRelationship textarea {
+  overflow: hidden;
+}
 
 
 footer {
