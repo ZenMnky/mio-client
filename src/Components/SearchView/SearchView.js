@@ -10,8 +10,8 @@ export default class SearchView extends Component {
         super(props);
         this.state = {
             searchResults: []
-        }
-    }
+        };
+    };
 
     searchProfiles = (zone, terms) => {    
         let filteredResults = [];
@@ -29,34 +29,34 @@ export default class SearchView extends Component {
                 || nickname.includes(terms)
                 ){
                     return true
-                }
-        }
+                };
+        };
 
 
         if(zone === 0){
             // filter all profiles by term
-            filteredResults = this.context.profiles.filter(filterProfiles)
+            filteredResults = this.context.profiles.filter(filterProfiles);
 
             this.setState({
                 searchResults: filteredResults
-            })
-        }
-        if(zone > 0) {
-            
-            let profileLevel = this.context[level] 
-            filteredResults = profileLevel.filter(filterProfiles)
+            });
+        };
+
+        if(zone > 0) {    
+            let profileLevel = this.context[level] ;
+            filteredResults = profileLevel.filter(filterProfiles);
             
             this.setState({
                 searchResults: filteredResults
-            })
-        }
-    }
+            });
+        };
+    };
 
     clearSearchResults = () => {
         this.setState({
             searchResults: []
-        })
-    }
+        });
+    };
 
     render(){
         return(
@@ -71,5 +71,5 @@ export default class SearchView extends Component {
                 />
             </article>
         )
-    }
-}
+    };
+};

@@ -8,7 +8,7 @@ export default class HomeBanner extends Component {
                 <h1>Mio</h1>          
                 <QuoteBlock />
             </div>
-        )
-    }
-}
+        );
+    };
+};
 

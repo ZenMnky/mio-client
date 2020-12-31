@@ -9,6 +9,6 @@ export default class EditView extends Component {
                 <h2>Edit Relationship</h2>
                 <EditRelationshipForm />   
             </article>
-        )
-    }
-}
+        );
+    };
+};

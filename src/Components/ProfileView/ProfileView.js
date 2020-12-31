@@ -50,7 +50,7 @@ class ProfileView extends Component{
                  /> 
         } else {
             content = `loading... `
-        }
+        };
         
     
 
@@ -59,8 +59,8 @@ class ProfileView extends Component{
                 <h2>Relationship Profile</h2>
                 {content}
             </article>
-        )
-    }
-}
+        );
+    };
+};
 
 export default withRouter(ProfileView);

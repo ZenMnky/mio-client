@@ -20,7 +20,8 @@ it('renders without crashing', () => {
       notes: "test",
       relationship_level: 1,
       admirable_qualities: "test",
-  }
+  };
+  
   ReactDOM.render(
     <BrowserRouter>
         <Provider>

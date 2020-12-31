@@ -7,21 +7,21 @@ export default class ErrorBoundary extends Component{
     };
 
     componentDidCatch() {
-        this.setState({ hasError: true })
-    }
+        this.setState({ hasError: true });
+    };
     
     render(){
         
         if (this.state.hasError){
             return(
                 <h2>Hmmm...something isn't quite right here...</h2>
-            )
-        }
+            );
+        };
         
-        return this.props.children
-    }
-}
+        return this.props.children;
+    };
+};
 
 ErrorBoundary.propTypes = {
     children: PropTypes.element
-}
+};

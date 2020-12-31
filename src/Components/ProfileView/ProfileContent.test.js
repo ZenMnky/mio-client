@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import {Provider} from '../../Context/AppContext'
+import {Provider} from '../../Context/AppContext';
 
 import ProfileContent from './ProfileContent';
 
@@ -23,7 +23,8 @@ it('renders without crashing', () => {
       notes: "test",
       relationship_level: 1,
       admirable_qualities: "test",
-  }
+  };
+  
   ReactDOM.render(
     <BrowserRouter>
         <Provider>

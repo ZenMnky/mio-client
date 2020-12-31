@@ -5,10 +5,9 @@ import { withRouter } from 'react-router-dom';
 class ProfileContent extends Component{
         
     handleEdit = (e) => {
-        e.preventDefault()
-        
-        this.props.history.push(`/edit/${this.props.match.params.id}`)
-    }
+        e.preventDefault();
+        this.props.history.push(`/edit/${this.props.match.params.id}`);
+    };
 
     render(){
         let {
@@ -49,8 +48,8 @@ class ProfileContent extends Component{
                 </section>
             </article >
             
-        )
-    }
-}
+        );
+    };
+};
 
 export default withRouter(ProfileContent);

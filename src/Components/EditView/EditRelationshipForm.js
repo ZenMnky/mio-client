@@ -7,7 +7,7 @@ class EditRelationshipForm extends Component {
     static contextType = AppContext;
 
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             id: '',
             first_name: '',
@@ -19,8 +19,8 @@ class EditRelationshipForm extends Component {
             notes: '',
             stateLoading: true,
             redirectLoading: false
-        }
-    }
+        };
+    };
 
     componentDidMount(){
         //based on the profile id, update state
@@ -38,10 +38,10 @@ class EditRelationshipForm extends Component {
                     admirable_qualities: profile.admirable_qualities,
                     notes: profile.notes,
                     stateLoading: false
-                })
-            })
-    }
-
+                });
+            });
+    };
+    
     componentWillUnmount(){
         this.setState({
             id: '',
@@ -54,8 +54,8 @@ class EditRelationshipForm extends Component {
             notes: '',
             stateLoading: true,
             redirectLoading: false
-        })
-    }
+        });
+    };
 
     
     /*=============================================
@@ -65,44 +65,44 @@ class EditRelationshipForm extends Component {
     firstNameChanged = (first_name) => {
         this.setState({
             first_name
-        })
-    }
+        });
+    };
 
     lastNameChanged = (last_name) => {
         this.setState({
             last_name
-        })
-    }
+        });
+    };
 
     nicknameChanged = (nickname) => {
         this.setState({
             nickname
-        })
-    }
+        });
+    };
 
     imageUrlChanged = (image_url) => {
         this.setState({
             image_url
-        })
-    }
+        });
+    };
 
     relationshipLevelChanged = (relationship_level) => {
         this.setState({
             relationship_level
-        })
-    }
+        });
+    };
 
     admirableQualitiesChanged = (admirable_qualities) => {
         this.setState({
             admirable_qualities
-        })
-    }
+        });
+    };
 
     notesChanged = (notes) => {
         this.setState({
             notes
-        })
-    }
+        });
+    };
 
     resetState = () => {
         this.setState({
@@ -113,9 +113,8 @@ class EditRelationshipForm extends Component {
             relationship_level: 1,
             admirable_qualities: '',
             notes: ''
-        })
-    }
-    
+        });
+    };
     
     /*=====  End of State Modifiers  ======*/
     
@@ -141,9 +140,9 @@ class EditRelationshipForm extends Component {
             relationship_level,
             admirable_qualities,
             notes
-        } = this.state
+        } = this.state;
 
-        this.resetState()
+        this.resetState();
 
         const updatedProfile = {
             first_name,
@@ -153,15 +152,14 @@ class EditRelationshipForm extends Component {
             relationship_level,
             admirable_qualities,
             notes
-        }
+        };
 
-        // PATCH to API 🚧
+        // PATCH to API
         this.context.handleUpdateProfile(id, updatedProfile)
-            
             .then((res) => {
                 this.setState({
                     redirectLoading: true
-                })
+                });
                 // update state
                 this.context.handleGetAllProfiles()
                     .then((res) => {
@@ -170,12 +168,9 @@ class EditRelationshipForm extends Component {
                     .then((res) => {
                         // redirect to updated profile view
                         this.props.history.push(`/view/${id}`)
-                    })
-                
-                
-            })
-        
-    }
+                    });                
+            });
+    };
 
     /**
      * handleCancel
@@ -183,29 +178,27 @@ class EditRelationshipForm extends Component {
      * reroute to profile view
      */
     handleCancel = (e) => {
-        e.preventDefault()
-        this.props.history.push(`/view/${this.state.id}`)
-    }
+        e.preventDefault();
+        this.props.history.push(`/view/${this.state.id}`);
+    };
 
     handleDelete = (e) => {
-        e.preventDefault()
-        let result = window.confirm('Are you sure you want to perminatley delete this profile? This action can not be undone.')
+        e.preventDefault();
+        let result = window.confirm('Are you sure you want to perminatley delete this profile? This action can not be undone.');
         if(result){
             // delete profile - api
             this.context.handleDeleteProfile(this.state.id)
             .then(() => {
                 // refresh state - (get & sort)
-                this.context.getAllAndSort()
-            })
+                this.context.getAllAndSort();
+            });
             // redirect to home page
-            this.props.history.push('/')
-        }
-    }
+            this.props.history.push('/');
+        };
+    };
     
     /*=====  End of Button handlers  ======*/
     
-
-
     render(){
 
         let avatar = (this.state.image_url) ? this.state.image_url : profileImg;
@@ -309,8 +302,8 @@ class EditRelationshipForm extends Component {
                         Delete Profile
                     </button>
                 </form>
-        )
-    }
-}
+        );
+    };
+};
 
 export default withRouter(EditRelationshipForm);

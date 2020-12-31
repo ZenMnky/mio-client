@@ -6,6 +6,6 @@ export default class Main extends Component{
             <main>
                 {this.props.children}
             </main>                    
-        )
-    }
-}
+        );
+    };
+};

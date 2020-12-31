@@ -9,6 +9,6 @@ export default class AddView extends Component {
                 <h2>Add Relationship</h2>
                 <AddRelationshiopForm />   
             </article>
-        )
-    }
-}
+        );
+    };
+};

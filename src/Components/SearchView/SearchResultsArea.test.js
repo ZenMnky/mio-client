@@ -15,7 +15,7 @@ it('renders without crashing', () => {
             image_url: 'https//www.test.com/img.jpg'
         }
     ]
-  }
+  };
 
   ReactDOM.render(    
     <BrowserRouter>

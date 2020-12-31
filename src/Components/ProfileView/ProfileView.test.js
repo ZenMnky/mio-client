@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-import {Provider} from '../../Context/AppContext'
+import {Provider} from '../../Context/AppContext';
 
 import ProfileView from './ProfileView';
 
@@ -13,7 +13,7 @@ it('renders without crashing', () => {
               id: 123
           }
       }
-  }
+  };
   ReactDOM.render(
     <BrowserRouter>
         <Provider>

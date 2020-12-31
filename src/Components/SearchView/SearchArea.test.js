@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from '../../Context/AppContext'
+import {Provider} from '../../Context/AppContext';
 
 import SearchArea from './SearchArea';
 
@@ -14,7 +14,7 @@ it('renders without crashing', () => {
     },
     clearSearchResults: () => {},
     searchProfiles: (x,y) => {},
-  }
+  };
 
   ReactDOM.render(    
     <Provider>

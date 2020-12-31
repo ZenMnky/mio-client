@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AppContext } from '../../Context/AppContext';
-import RelationshipCard from '../RelationshipCard/RelationshipCard'
+import RelationshipCard from '../RelationshipCard/RelationshipCard';
 
 export default class ViewView extends Component {
 
@@ -22,15 +22,15 @@ export default class ViewView extends Component {
                     nickname={profile.nickname}
                     imageUrl={profile.image_url}
                     />
-        }
+        };
 
         // use the level arrays to generate the level-components
         // populated with a relationnship card for each object/profile in the array
-        const level1Group = level1.map(profile => generateCards(profile))
-        const level2Group = level2.map(profile => generateCards(profile))
-        const level3Group = level3.map(profile => generateCards(profile))
-        const level4Group = level4.map(profile => generateCards(profile))
-        const level5Group = level5.map(profile => generateCards(profile))
+        const level1Group = level1.map(profile => generateCards(profile));
+        const level2Group = level2.map(profile => generateCards(profile));
+        const level3Group = level3.map(profile => generateCards(profile));
+        const level4Group = level4.map(profile => generateCards(profile));
+        const level5Group = level5.map(profile => generateCards(profile));
         
         
 
@@ -62,7 +62,7 @@ export default class ViewView extends Component {
                     {level5Group}
                 </section>           
        </article>
-        )
-    }
-}
+        );
+    };
+};
 

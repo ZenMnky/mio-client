@@ -3,7 +3,7 @@ import RelationshipCard from '../RelationshipCard/RelationshipCard';
 
 export default class SearchResultsArea extends Component {
     render(){
-        let {searchResults} = this.props
+        let {searchResults} = this.props;
 
         let results = (searchResults) 
             ? searchResults.map(profile => {
@@ -16,7 +16,7 @@ export default class SearchResultsArea extends Component {
                     imageUrl={profile.image_url}
                     />
             }) 
-            : ''
+            : '';
         
 
         return(
@@ -33,6 +33,6 @@ export default class SearchResultsArea extends Component {
                 
             </section>
 
-        )
-    }
-}
+        );
+    };
+};

@@ -10,8 +10,8 @@ export default class SearchArea extends Component {
         this.state = {
             searchTerms: '',
             relationshipZone: 0
-        }
-    }
+        };
+    };
 
     
     /*=============================================
@@ -20,14 +20,14 @@ export default class SearchArea extends Component {
     relationshipZoneChanged = (relationshipZone) => {
         this.setState({
             relationshipZone
-        })
-    }
+        });
+    };
 
     handleSearchTermsChanged = (searchTerms) => {
         this.setState({
             searchTerms
-        })
-    }
+        });
+    };
     
     /*=====  End of State Modifiers  ======*/
     
@@ -37,38 +37,33 @@ export default class SearchArea extends Component {
     =============================================*/
     handleSearch = (e) => {
         e.preventDefault();
-
         let {relationshipZone, searchTerms } = this.state;
-
-        this.props.searchProfiles(relationshipZone, searchTerms)
-       
-    }
+        this.props.searchProfiles(relationshipZone, searchTerms);
+    };
 
     handleReset = (e) => {
         if(e){
             e.preventDefault();
-        }
+        };
         
         // reset state in this component
         this.setState({
             searchTerms: '',
             relationshipZone: 0
-        })
+        });
 
         // reset state in parent component
         this.props.clearSearchResults();
-
-    }    
+    };    
     
     /*=====  End of Event Handlers  ======*/
     
     componentWillUnmount = () => {
-        this.handleReset()
-    }
+        this.handleReset();
+    };
 
     render(){
         return(
-            
             <section id="searchRelationship" className='searchRelationship'>
                 <form action="">
                     <div>
@@ -117,5 +112,5 @@ export default class SearchArea extends Component {
             </section>
     
         )
-    }
-}
+    };
+};

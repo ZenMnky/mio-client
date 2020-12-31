@@ -7,8 +7,7 @@ const API_BASE = config.API_BASE_ENDPOINT;
 export const AppContext = React.createContext();
 
 export class Provider extends Component {
-    constructor(props){
-        
+    constructor(props){        
         // set up state
         super(props);
         this.state = {
@@ -20,13 +19,12 @@ export class Provider extends Component {
             level4: [],
             level5: [],
             selectedProfile: null
-        }
-    }
+        };
+    };
 
     componentDidMount() {
-        this.getAllAndSort()
-        
-    }
+        this.getAllAndSort();
+    };
         
     /*=============================================
     =            STATE FUNCTIONS            =
@@ -34,8 +32,8 @@ export class Provider extends Component {
         
     getAllAndSort = () => {
         this.handleGetAllProfiles()
-        .then(() => this.handleSortRelationships())
-    }
+            .then(() => this.handleSortRelationships())
+    };
     
     
     handleSortRelationships = () => {
@@ -68,8 +66,8 @@ export class Provider extends Component {
                     break;
                 default:
                     console.log(`no matching case for ${relationship.nickname}`)
-            }
-        })
+            };
+        });
 
         // update state
         this.setState({
@@ -78,29 +76,28 @@ export class Provider extends Component {
             level3: level3,
             level4: level4,
             level5: level5
-        })    
+        });    
 
-    }
+    };
 
     clearSelectedProfile = () => {
         this.setState({
             selectedProfile: null
-        })
-    }
+        });
+    };
 
 
     getProfileById = (id) => {
-        let profile = this.state.profiles.find(profile => profile.id === id)
-
+        let profile = this.state.profiles.find(profile => profile.id === id);
         return profile;
-    }
+    };
 
     addProfile = (newProfile) => {
         let currentProfiles = this.state.profiles;
 
         this.setState({
             profiles: [...currentProfiles, newProfile]    
-        })
+        });
 
         this.handleSortRelationships();
     }
@@ -130,8 +127,8 @@ export class Provider extends Component {
                 profiles: results
             })
         })
-        .catch(error => this.setState({ error }))
-    }
+        .catch(error => this.setState({ error }));
+    };
     
     // post
     handleInsertProfile = (newProfile) => {
@@ -152,9 +149,8 @@ export class Provider extends Component {
             }
             return res.json();
         })
-        .catch(error => this.setState({ error }))
-        
-    }
+        .catch(error => this.setState({ error }));
+    };
 
     // get by id
     // given an id, return the matching profile
@@ -175,8 +171,8 @@ export class Provider extends Component {
                 selectedProfile: results
             })
         })
-        .catch(error => this.setState({ error }))    
-    }
+        .catch(error => this.setState({ error }));
+    };
 
     simpleGetById = (id) => {
             // fetch
@@ -188,8 +184,8 @@ export class Provider extends Component {
                 throw new Error(res.status)
             }
             return res.json();
-        })
-    }
+        });
+    };
 
     // patch by id
     handleUpdateProfile = (id, updatedContent) => {
@@ -208,8 +204,8 @@ export class Provider extends Component {
             }
             return res.json();
         })
-        .catch(error => this.setState({ error }))
-    }
+        .catch(error => this.setState({ error }));
+    };
 
     // delete by id
     handleDeleteProfile = (id) => {
@@ -223,8 +219,8 @@ export class Provider extends Component {
             }
             return res.json();
         })  
-        .catch(error => this.setState({ error }))
-    }
+        .catch(error => this.setState({ error }));
+    };
     
     /*=====  End of API FUNCTIONS  ======*/
     
@@ -242,7 +238,7 @@ export class Provider extends Component {
             addProfile: this.addProfile,
             getProfileById: this.getProfileById,
             simpleGetById: this.simpleGetById,
-        }
+        };
 
         return (
             <AppContext.Provider value={contextValues}>
@@ -250,10 +246,10 @@ export class Provider extends Component {
             </AppContext.Provider>
         );
     };
-}
+};
 
 export const { Consumer } = AppContext;
 
 Provider.propTypes = {
     children: PropTypes.element
-}
+};

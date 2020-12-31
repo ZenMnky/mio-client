@@ -6,17 +6,17 @@ import 'normalize.css';
 import './App.css';
 
 //components
-import Header from '../Components/Header/Header'
-import Footer from '../Components/Footer/Footer'
-import MainContainer from '../Components/MainContainer/MainContainer'
-import HomeBanner from '../Components/HomeView/HomeBanner'
-import PageNotFound from '../Components/PageNotFound/PageNotFound'
-import SearchView from '../Components/SearchView/SearchView'
-import AddView from '../Components/AddView/AddView'
-import ViewView from '../Components/ViewView/ViewView'
+import Header from '../Components/Header/Header';
+import Footer from '../Components/Footer/Footer';
+import MainContainer from '../Components/MainContainer/MainContainer';
+import HomeBanner from '../Components/HomeView/HomeBanner';
+import PageNotFound from '../Components/PageNotFound/PageNotFound';
+import SearchView from '../Components/SearchView/SearchView';
+import AddView from '../Components/AddView/AddView';
+import ViewView from '../Components/ViewView/ViewView';
 import ProfileView from '../Components/ProfileView/ProfileView';
 import EditView from '../Components/EditView/EditView';
-import AboutView from '../Components/AboutView/AboutView'
+import AboutView from '../Components/AboutView/AboutView';
 
 class App extends Component {
  
@@ -40,7 +40,7 @@ class App extends Component {
         <Footer />
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;

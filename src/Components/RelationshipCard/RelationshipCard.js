@@ -10,7 +10,7 @@ export default class RelationshipCard extends Component {
         let profilePath = `/view/${id}`;
         let name = `${firstName} ${lastName}`;
 
-        let image = imageUrl ? imageUrl : profileImg
+        let image = imageUrl ? imageUrl : profileImg;
 
         return(
             <div className="relationshipCard frostedGlass">
@@ -24,6 +24,6 @@ export default class RelationshipCard extends Component {
                     </div>
                 </Link>
             </div>
-        )
-    }
-}
+        );
+    };
+};

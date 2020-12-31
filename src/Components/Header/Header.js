@@ -30,6 +30,6 @@ export default class Header extends Component {
               </ul>    
             </nav>
           </header>
-        )
-    }
-}
+        );
+    };
+};

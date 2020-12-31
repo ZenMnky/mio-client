@@ -237,8 +237,8 @@ class AddRelationshiopForm extends Component {
             <form id="addRelationshipForm">
                     {form}
             </form>
-        )
-    }
-}
+        );
+    };
+};
 
 export default withRouter(AddRelationshiopForm);
