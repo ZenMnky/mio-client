@@ -24,6 +24,12 @@ export default class SearchArea extends Component {
     };
 
     handleSearchTermsChanged = (searchTerms) => {
+        // if the search terms are cleared
+        // clear the search results and set search to false
+        if(!searchTerms){
+            this.props.clearSearchResults()
+        };
+        
         this.setState({
             searchTerms
         });
