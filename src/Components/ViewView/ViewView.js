@@ -7,6 +7,12 @@ export default class ViewView extends Component {
     // allow access to context via `this.context`
     static contextType = AppContext;
 
+    constructor(props){
+        super(props);
+        this.state = {
+            loading: false,
+        };
+    };
 
     render(){
 
@@ -24,6 +30,7 @@ export default class ViewView extends Component {
                     />
         };
 
+        
         // use the level arrays to generate the level-components
         // populated with a relationnship card for each object/profile in the array
         const level1Group = level1.map(profile => generateCards(profile));
@@ -31,12 +38,13 @@ export default class ViewView extends Component {
         const level3Group = level3.map(profile => generateCards(profile));
         const level4Group = level4.map(profile => generateCards(profile));
         const level5Group = level5.map(profile => generateCards(profile));
-        
-        
 
-        return(
-            <article id="viewRelationshiops" className='viewRelationships articleView'>
-               <h2>Relationships</h2>
+
+        
+        let content = (this.context.profiles.length === 0)
+        ? <p>Loading relationship groups...</p>
+        : (
+            <>
                 <section id="level1Group" className="relationshipGroup">
                     <h3 className="groupHeader">Level 1</h3>
                     {level1Group}
@@ -61,7 +69,15 @@ export default class ViewView extends Component {
                     <h3 className="groupHeader">Level 5</h3>
                     {level5Group}
                 </section>           
-       </article>
+
+            </>
+        );
+
+        return(
+            <article id="viewRelationshiops" className='viewRelationships articleView'>
+               <h2>Relationships</h2>
+               {content}
+            </article>
         );
     };
 };
