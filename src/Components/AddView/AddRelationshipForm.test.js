@@ -10,11 +10,11 @@ it('renders without crashing', () => {
   
   ReactDOM.render(
     <BrowserRouter>
-        <Provider>
-            <AddRelationshipForm />
-        </Provider>
+      <Provider>
+        <AddRelationshipForm />
+      </Provider>
     </BrowserRouter>, 
     div
-);
+  );
   ReactDOM.unmountComponentAtNode(div);
 });

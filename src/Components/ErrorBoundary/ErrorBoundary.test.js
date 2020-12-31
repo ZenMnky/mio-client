@@ -9,9 +9,9 @@ it('renders without crashing', () => {
   
   ReactDOM.render(
     <ErrorBoundary>
-        <BrowserRouter>
-            <AboutView />
-        </BrowserRouter>
+      <BrowserRouter>
+        <AboutView />
+      </BrowserRouter>
     </ ErrorBoundary>, 
     div
   );

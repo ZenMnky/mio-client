@@ -9,6 +9,6 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <PageNotFound />, 
     div
-);
+  );
   ReactDOM.unmountComponentAtNode(div);
 });

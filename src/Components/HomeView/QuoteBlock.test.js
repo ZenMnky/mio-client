@@ -9,6 +9,6 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <QuoteBlock />, 
     div
-);
+  );
   ReactDOM.unmountComponentAtNode(div);
 });
