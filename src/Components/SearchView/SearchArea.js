@@ -9,7 +9,7 @@ export default class SearchArea extends Component {
         super(props);
         this.state = {
             searchTerms: '',
-            relationshipZone: 0
+            relationshipZone: 0,  
         };
     };
 
@@ -37,6 +37,7 @@ export default class SearchArea extends Component {
     =============================================*/
     handleSearch = (e) => {
         e.preventDefault();
+        this.props.updateSearchPerfomed(true);
         let {relationshipZone, searchTerms } = this.state;
         this.props.searchProfiles(relationshipZone, searchTerms);
     };
@@ -49,7 +50,7 @@ export default class SearchArea extends Component {
         // reset state in this component
         this.setState({
             searchTerms: '',
-            relationshipZone: 0
+            relationshipZone: 0,
         });
 
         // reset state in parent component
@@ -63,6 +64,7 @@ export default class SearchArea extends Component {
     };
 
     render(){
+
         return(
             <section id="searchRelationship" className='searchRelationship'>
                 <form action="">
