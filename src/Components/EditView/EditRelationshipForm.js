@@ -131,6 +131,12 @@ class EditRelationshipForm extends Component {
     handleSave = (event) => {
         event.preventDefault();
         
+        this.setState(
+            {
+                stateLoading: true,
+            }
+        );
+        
         const { 
             id,
             first_name,
@@ -202,19 +208,24 @@ class EditRelationshipForm extends Component {
     render(){
 
         let avatar = (this.state.image_url) ? this.state.image_url : profileImg;
-        let updatingMsg = (this.state.redirectLoading) ? <p>Updating...</p> : '';
-        let loadingMsg = (this.state.stateLoading) ? <p>Loding information...</p> : '';
+        
+        let content = '';
 
-        return(
-            <form id="editRelationshipForm">
+        if(this.state.stateLoading){
+            content = <p>Loding information...</p>;
+        } else if (this.state.redirectLoading){
+            content = <p>Updating...</p>;
+        } else {
+            content = (
+                <>
                     <div>
                         <img 
                             className="profileImg"
                             src={avatar}
                             alt={`${this.state.first_name} ${this.state.last_name} profile`}
                         />
-                        {updatingMsg}
-                        {loadingMsg}
+                        
+    
                     </div>
 
                     <label htmlFor="first_name"></label>
@@ -301,7 +312,15 @@ class EditRelationshipForm extends Component {
                     >
                         Delete Profile
                     </button>
-                </form>
+                </>
+            );
+        };
+        
+
+        return(
+            <form id="editRelationshipForm">
+                   {content} 
+            </form>
         );
     };
 };
