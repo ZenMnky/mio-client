@@ -9,7 +9,8 @@ export default class SearchView extends Component {
     constructor(props){
         super(props);
         this.state = {
-            searchResults: []
+            searchResults: [],
+            searchPerformed: false,
         };
     };
 
@@ -54,21 +55,44 @@ export default class SearchView extends Component {
 
     clearSearchResults = () => {
         this.setState({
-            searchResults: []
+            searchResults: [],
+            searchPerformed: false,
+        });
+    };
+
+    updateSearchPerfomed = (condition) => {
+        this.setState({
+            searchPerformed: condition
         });
     };
 
     render(){
+
+        let results = '';
+
+        if(!this.state.searchPerformed){
+            results = '';
+        } else if (this.state.searchPerformed && this.state.searchResults.length === 0){
+            results = <p>No results found.</p>
+        } else {
+            results = (
+                <>
+                    <SearchResultsArea 
+                        searchResults={this.state.searchResults} 
+                    />
+                </>
+            )
+        };
+
         return(
             <article id='searchView' className='articleView'>
                <h3>Search Relationships</h3>
                 <SearchArea 
                     searchProfiles={this.searchProfiles} 
                     clearSearchResults={this.clearSearchResults} 
+                    updateSearchPerfomed={this.updateSearchPerfomed}
                 />
-                <SearchResultsArea 
-                    searchResults={this.state.searchResults} 
-                />
+                {results}
             </article>
         )
     };
