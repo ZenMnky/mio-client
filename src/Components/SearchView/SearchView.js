@@ -15,8 +15,9 @@ export default class SearchView extends Component {
 
     searchProfiles = (zone, terms) => {    
         let filteredResults = [];
+        let level = `level${zone}`;
         terms = terms.toLowerCase();
-        let level = `level${zone}`
+
         const filterProfiles = (profile) => {
             let {first_name, last_name, nickname } = profile;
             first_name = first_name.toLowerCase();
@@ -25,9 +26,10 @@ export default class SearchView extends Component {
     
             if (first_name.includes(terms)
                 || last_name.includes(terms)
-                || nickname.includes(terms)){
+                || nickname.includes(terms)
+                ){
                     return true
-            }
+                }
         }
 
 

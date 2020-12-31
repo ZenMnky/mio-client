@@ -43,7 +43,9 @@ class ProfileContent extends Component{
                             <p>{notes}</p>
                         </div>         
                         
-                        <button onClick={e => this.handleEdit(e) }>Edit</button>
+                        <button onClick={e => this.handleEdit(e) }>
+                            Edit
+                        </button>
                 </section>
             </article >
             

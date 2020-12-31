@@ -13,6 +13,10 @@ export default class SearchArea extends Component {
         }
     }
 
+    
+    /*=============================================
+    =            State Modifiers            =
+    =============================================*/
     relationshipZoneChanged = (relationshipZone) => {
         this.setState({
             relationshipZone
@@ -24,7 +28,13 @@ export default class SearchArea extends Component {
             searchTerms
         })
     }
-
+    
+    /*=====  End of State Modifiers  ======*/
+    
+    
+    /*=============================================
+    =            Event Handlers            =
+    =============================================*/
     handleSearch = (e) => {
         e.preventDefault();
 
@@ -48,8 +58,10 @@ export default class SearchArea extends Component {
         // reset state in parent component
         this.props.clearSearchResults();
 
-    }
-
+    }    
+    
+    /*=====  End of Event Handlers  ======*/
+    
     componentWillUnmount = () => {
         this.handleReset()
     }
@@ -60,7 +72,9 @@ export default class SearchArea extends Component {
             <section id="searchRelationship" className='searchRelationship'>
                 <form action="">
                     <div>
-                        <label htmlFor="search_terms">Search Terms</label>
+                        <label htmlFor="search_terms">
+                            Search Terms
+                        </label>
                         <input 
                             id="search_terms" 
                             type="text" 
@@ -91,8 +105,12 @@ export default class SearchArea extends Component {
                     </div>
 
                     <div>
-                        <button onClick={e => this.handleSearch(e)}>Search</button>
-                        <button onClick={e => this.handleReset(e)}>Reset</button>
+                        <button onClick={e => this.handleSearch(e)}>
+                            Search
+                        </button>
+                        <button onClick={e => this.handleReset(e)}>
+                            Reset
+                        </button>
                     </div> 
                 
                 </form>

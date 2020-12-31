@@ -12,6 +12,7 @@ export default class ViewView extends Component {
 
         // get arrays of relationship objects from context
         const { level1, level2, level3, level4, level5 } = this.context;
+        
         const generateCards = (profile) => {
             return <RelationshipCard 
                     key={profile.id}
@@ -22,15 +23,16 @@ export default class ViewView extends Component {
                     imageUrl={profile.image_url}
                     />
         }
+
+        // use the level arrays to generate the level-components
+        // populated with a relationnship card for each object/profile in the array
         const level1Group = level1.map(profile => generateCards(profile))
         const level2Group = level2.map(profile => generateCards(profile))
         const level3Group = level3.map(profile => generateCards(profile))
         const level4Group = level4.map(profile => generateCards(profile))
         const level5Group = level5.map(profile => generateCards(profile))
-        // use the level arrays to generate the level-components
-        // populated with a relationnship card for each object/profile in the array
-
-
+        
+        
 
         return(
             <article id="viewRelationshiops" className='viewRelationships articleView'>
