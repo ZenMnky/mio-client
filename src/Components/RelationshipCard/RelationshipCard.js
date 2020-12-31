@@ -16,7 +16,7 @@ export default class RelationshipCard extends Component {
             <div className="relationshipCard frostedGlass">
                 <Link to={profilePath}>
                     <div key={cuid()}>
-                        <img src={image} alt='profile'/> 
+                        <img src={image} alt={`${firstName} ${lastName} profile`}/> 
                         <div className="cardContent">
                             <p>{nickname}</p>
                             <p>{name}</p>

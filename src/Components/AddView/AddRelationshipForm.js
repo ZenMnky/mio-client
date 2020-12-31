@@ -139,6 +139,11 @@ class AddRelationshiopForm extends Component {
     /*=====  End of Button Handlers  ======*/
 
     render(){
+
+        let avatar = (this.state.image_url)
+         ? this.state.image_url
+         : profileImg;
+
         const form = (this.state.redirectLoading) 
             ? <p>Loading ... </p> 
             : (
@@ -146,8 +151,8 @@ class AddRelationshiopForm extends Component {
                     <div>
                         <img 
                             className="profileImg"
-                            src={profileImg}
-                            alt='profile' 
+                            src={avatar}
+                            alt={`${this.state.first_name} ${this.state.last_name} profile`} 
                         />
                     </div>
 

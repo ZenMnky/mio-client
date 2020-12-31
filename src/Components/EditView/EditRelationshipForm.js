@@ -218,7 +218,7 @@ class EditRelationshipForm extends Component {
                         <img 
                             className="profileImg"
                             src={avatar}
-                            alt='profile' 
+                            alt={`${this.state.first_name} ${this.state.last_name} profile`}
                         />
                         {updatingMsg}
                         {loadingMsg}

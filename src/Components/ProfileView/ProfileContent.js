@@ -27,7 +27,7 @@ class ProfileContent extends Component{
                     <img 
                         className="profileImg"
                         src={image_url}
-                        alt='profile'
+                        alt={`${first_name} ${last_name} profile`}
                     />
                 </section>
                 <section id="profileContentArea">
