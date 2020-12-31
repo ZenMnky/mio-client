@@ -7,7 +7,7 @@ class AddRelationshiopForm extends Component {
     static contextType = AppContext;
 
     constructor(props){
-        super(props)
+        super(props);
         this.state = {
             first_name: '',
             last_name: '',
@@ -17,8 +17,8 @@ class AddRelationshiopForm extends Component {
             admirable_qualities: '',
             notes: '',
             redirectLoading: false,
-        }
-    }
+        };
+    };
     
     /*=============================================
     =            State Modifiers            =
@@ -26,44 +26,44 @@ class AddRelationshiopForm extends Component {
     firstNameChanged = (first_name) => {
         this.setState({
             first_name
-        })
-    }
+        });
+    };
 
     lastNameChanged = (last_name) => {
         this.setState({
             last_name
-        })
-    }
+        });
+    };
 
     nicknameChanged = (nickname) => {
         this.setState({
             nickname
-        })
-    }
+        });
+    };
 
     imageUrlChanged = (image_url) => {
         this.setState({
             image_url
-        })
-    }
+        });
+    };
 
     relationshipLevelChanged = (relationship_level) => {
         this.setState({
             relationship_level
-        })
-    }
+        });
+    };
 
     admirableQualitiesChanged = (admirable_qualities) => {
         this.setState({
             admirable_qualities
-        })
-    }
+        });
+    };
 
     notesChanged = (notes) => {
         this.setState({
             notes
-        })
-    }
+        });
+    };
 
     resetState = () => {
         this.setState({
@@ -74,8 +74,8 @@ class AddRelationshiopForm extends Component {
             relationship_level: 1,
             admirable_qualities: '',
             notes: ''
-        })
-    }    
+        });
+    };
     
     /*=====  End of State Modifiers  ======*/
         
@@ -124,17 +124,16 @@ class AddRelationshiopForm extends Component {
         this.context.handleInsertProfile(newProfile)
             .then((res) => {
                 // update state
-                this.context.addProfile(res)
+                this.context.addProfile(res);
                 // redirect to newly created profile
-                this.props.history.push(`/view/${res.id}`)
-            })
-        
-    }
+                this.props.history.push(`/view/${res.id}`);
+            });
+    };
 
     handleReset = (e) => {
-        e.preventDefault()
-        this.resetState()
-    }
+        e.preventDefault();
+        this.resetState();
+    };
     
     /*=====  End of Button Handlers  ======*/
 
@@ -232,7 +231,7 @@ class AddRelationshiopForm extends Component {
                         Cancel
                     </button>
                 </>
-            )
+            );
 
         return(
             <form id="addRelationshipForm">
