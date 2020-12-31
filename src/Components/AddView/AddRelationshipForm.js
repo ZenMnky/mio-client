@@ -15,7 +15,8 @@ class AddRelationshiopForm extends Component {
             image_url: '',
             relationship_level: 1,
             admirable_qualities: '',
-            notes: ''
+            notes: '',
+            redirectLoading: false,
         }
     }
     
@@ -93,6 +94,10 @@ class AddRelationshiopForm extends Component {
     handleSumbit = (event) => {
         event.preventDefault();
         
+        this.setState({
+            redirectLoading: true
+        });
+
         const { 
             first_name,
             last_name,
@@ -101,9 +106,9 @@ class AddRelationshiopForm extends Component {
             relationship_level,
             admirable_qualities,
             notes
-        } = this.state
+        } = this.state;
 
-        this.resetState()
+        this.resetState();
 
         const newProfile = {
             first_name,
@@ -113,13 +118,13 @@ class AddRelationshiopForm extends Component {
             relationship_level,
             admirable_qualities,
             notes
-        }
+        };
 
         // POST to API
         this.context.handleInsertProfile(newProfile)
             .then((res) => {
                 // update state
-
+                this.context.addProfile(res)
                 // redirect to newly created profile
                 this.props.history.push(`/view/${res.id}`)
             })
@@ -132,10 +137,12 @@ class AddRelationshiopForm extends Component {
     }
     
     /*=====  End of Button Handlers  ======*/
-    
+
     render(){
-        return(
-            <form id="addRelationshipForm">
+        const form = (this.state.redirectLoading) 
+            ? <p>Loading ... </p> 
+            : (
+                <>
                     <div>
                         <img 
                             className="profileImg"
@@ -219,7 +226,13 @@ class AddRelationshiopForm extends Component {
                     >
                         Cancel
                     </button>
-                </form>
+                </>
+            )
+
+        return(
+            <form id="addRelationshipForm">
+                    {form}
+            </form>
         )
     }
 }
