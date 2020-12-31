@@ -10,11 +10,11 @@ it('renders without crashing', () => {
 
   ReactDOM.render(
     <BrowserRouter>
-        <Provider>
-            <ViewView />
-        </Provider>
+      <Provider>
+        <ViewView />
+      </Provider>
     </BrowserRouter>, 
     div
-);
+  );
   ReactDOM.unmountComponentAtNode(div);
 });

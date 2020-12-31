@@ -4,26 +4,26 @@ import cuid from 'cuid';
 import profileImg from '../../profileImg.jpg';
 
 export default class RelationshipCard extends Component {
-    render(){
+  render(){
 
-        const {firstName, lastName, nickname, imageUrl, id} = this.props;
-        let profilePath = `/view/${id}`;
-        let name = `${firstName} ${lastName}`;
+    const {firstName, lastName, nickname, imageUrl, id} = this.props;
+    let profilePath = `/view/${id}`;
+    let name = `${firstName} ${lastName}`;
 
-        let image = imageUrl ? imageUrl : profileImg;
+    let image = imageUrl ? imageUrl : profileImg;
 
-        return(
-            <div className="relationshipCard frostedGlass">
-                <Link to={profilePath}>
-                    <div key={cuid()}>
-                        <img src={image} alt={`${firstName} ${lastName} profile`}/> 
-                        <div className="cardContent">
-                            <p>{nickname}</p>
-                            <p>{name}</p>
-                        </div>
-                    </div>
-                </Link>
+    return(
+      <div className="relationshipCard frostedGlass">
+        <Link to={profilePath}>
+          <div key={cuid()}>
+            <img src={image} alt={`${firstName} ${lastName} profile`}/> 
+            <div className="cardContent">
+              <p>{nickname}</p>
+              <p>{name}</p>
             </div>
-        );
-    };
-};
+          </div>
+        </Link>
+      </div>
+    );
+  }
+}

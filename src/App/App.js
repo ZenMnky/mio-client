@@ -24,23 +24,23 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-          <MainContainer>
-            <Switch>
-              <Route exact path='/' component={HomeBanner} />
-              <Route path='/about' component={AboutView} />
-              <Route exact path='/view' component={ViewView} />
-              <Route path='/view/:id' component={ProfileView} />
-              <Route path='/search' component={SearchView} />
-              <Route path='/add' component={AddView} />
-              <Route path='/edit/:id' component={EditView} />
+        <MainContainer>
+          <Switch>
+            <Route exact path='/' component={HomeBanner} />
+            <Route path='/about' component={AboutView} />
+            <Route exact path='/view' component={ViewView} />
+            <Route path='/view/:id' component={ProfileView} />
+            <Route path='/search' component={SearchView} />
+            <Route path='/add' component={AddView} />
+            <Route path='/edit/:id' component={EditView} />
               
-              <Route component={PageNotFound} />
-            </Switch>
-          </MainContainer>
+            <Route component={PageNotFound} />
+          </Switch>
+        </MainContainer>
         <Footer />
       </div>
     );
-  };
-};
+  }
+}
 
 export default App;
