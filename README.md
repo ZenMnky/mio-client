@@ -18,11 +18,11 @@ Next release will add ability to create user accounts and handle authentication.
 ## Screenshots
 | View |Desktop | Mobile |
 |:----:|:------:|:------:|
-| Main | ![desktop home page](https://i.ibb.co/zQWQQ81/mio-home-desktop.jpg)| ![mobile home page](https://i.ibb.co/QNdWmNj/mio-home-mobile.jpg) |
-| View All | ![desktop view all page](https://i.ibb.co/XVRVdKB/mio-view-all-desktop.jpg)| ![mobile view all page](https://i.ibb.co/b1Q19F7/mio-view-all-mobile.jpg) |
-| Add | ![desktop add view](https://i.ibb.co/qrBRrLV/mio-add-view-desktop.jpg) | ![mobile add view](https://i.ibb.co/MSfX77p/mio-add-view-mobile.jpg) |
-| Edit | ![desktop edit view](https://i.ibb.co/sVvrbH7/mio-edit-profile-desktop.jpg)| ![mobile edit view](https://i.ibb.co/XXbnHNd/mio-edit-profile-mobile.jpg) |
-| Search | ![desktop search view](https://i.ibb.co/Jk7VnyS/mio-search-desktop.jpg) | ![mobile search view](https://i.ibb.co/pRFCYJN/mio-search-mobile.jpg) |
+| Main | ![desktop home page](https://i.ibb.co/ZWjq4HL/mio-home-desktop.jpg)| ![mobile home page](https://i.ibb.co/zRHjpy7/mio-home-mobile.jpg) |
+| View All | ![desktop view all page](https://i.ibb.co/QKSbDFQ/mio-view-all-desktop.jpg)| ![mobile view all page](https://i.ibb.co/JHMR5LJ/mio-view-all-mobile.jpg) |
+| Add | ![desktop add view](https://i.ibb.co/rZ3ggws/mio-add-view-desktop.jpg) | ![mobile add view](https://i.ibb.co/tc3FRxD/mio-add-view-mobile.jpg) |
+| Edit | ![desktop edit view](https://i.ibb.co/cCThpmt/mio-edit-profile-desktop.jpg)| ![mobile edit view](https://i.ibb.co/x3FJ3Yh/mio-edit-profile-mobile.jpg) |
+| Search | ![desktop search view](https://i.ibb.co/3Yy77ch/mio-search-desktop.jpg) | ![mobile search view](https://i.ibb.co/fqVhdT9/mio-search-mobile.jpg) |
 
 
 
