@@ -60,7 +60,7 @@ export default class SearchView extends Component {
         });
     };
 
-    updateSearchPerfomed = (condition) => {
+    updateSearchPerformed = (condition) => {
         this.setState({
             searchPerformed: condition
         });
@@ -90,7 +90,7 @@ export default class SearchView extends Component {
                 <SearchArea 
                     searchProfiles={this.searchProfiles} 
                     clearSearchResults={this.clearSearchResults} 
-                    updateSearchPerfomed={this.updateSearchPerfomed}
+                    updateSearchPerformed={this.updateSearchPerformed}
                 />
                 {results}
             </article>

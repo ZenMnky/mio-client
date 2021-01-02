@@ -32,7 +32,7 @@ export default class ViewView extends Component {
 
         
         // use the level arrays to generate the level-components
-        // populated with a relationnship card for each object/profile in the array
+        // populated with a relationship card for each object/profile in the array
         const level1Group = level1.map(profile => generateCards(profile));
         const level2Group = level2.map(profile => generateCards(profile));
         const level3Group = level3.map(profile => generateCards(profile));
@@ -74,7 +74,7 @@ export default class ViewView extends Component {
         );
 
         return(
-            <article id="viewRelationshiops" className='viewRelationships articleView'>
+            <article id="viewRelationships" className='viewRelationships articleView'>
                <h2>Relationships</h2>
                {content}
             </article>

@@ -43,7 +43,7 @@ export default class SearchArea extends Component {
     =============================================*/
     handleSearch = (e) => {
         e.preventDefault();
-        this.props.updateSearchPerfomed(true);
+        this.props.updateSearchPerformed(true);
         let {relationshipZone, searchTerms } = this.state;
         this.props.searchProfiles(relationshipZone, searchTerms);
     };
