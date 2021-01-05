@@ -2,7 +2,7 @@
 
 export default (element, defaultHeight) => {
     if(element) {
-        // supports passaning an event and a raw element via React ref
+        // supports passing an event and a raw element via React ref
         const target = element.target ? element.target : element;
         target.style.height = defaultHeight;
         target.style.height = `${target.scrollHeight}px`;
