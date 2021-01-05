@@ -2,6 +2,8 @@
 _Metta Interpersonal Organizer_  
 
 [Link to Live App](https://mio-client.vercel.app/)
+
+[Link to Server Repo](https://github.com/ZenMnky/mio-server)
   
 ## Project description:
 
