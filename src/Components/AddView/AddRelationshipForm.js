@@ -4,7 +4,7 @@ import { AppContext } from '../../Context/AppContext';
 import profileImg from '../../profileImg.jpg';
 import setInputHeight from '../../HelperModules/setInputHeight';
 
-class AddRelationshiopForm extends Component {
+class AddRelationshipForm extends Component {
     static contextType = AppContext;
 
     constructor(props){
@@ -80,7 +80,7 @@ class AddRelationshiopForm extends Component {
     
     /*=====  End of State Modifiers  ======*/
         
-    // !TODO: add form vaildation functions
+    // !TODO: add form validation functions
 
 
     
@@ -92,7 +92,7 @@ class AddRelationshiopForm extends Component {
      * handleSubmit
      * on submit: POST to API, update state, redirect to newly created profile
      */
-    handleSumbit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault();
         
         this.setState({
@@ -244,7 +244,7 @@ class AddRelationshiopForm extends Component {
 
                     <button
                         type="submit"
-                        onClick={event => this.handleSumbit(event)}
+                        onClick={event => this.handleSubmit(event)}
                     >
                             Add
                     </button>
@@ -265,4 +265,4 @@ class AddRelationshiopForm extends Component {
     };
 };
 
-export default withRouter(AddRelationshiopForm);
+export default withRouter(AddRelationshipForm);
